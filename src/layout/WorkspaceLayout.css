@@ -1,0 +1,43 @@
+
+.WorkspaceToolbar {
+  position: fixed;
+  width: 100%;
+  top: 1.2em;
+  border-bottom: thick solid var(--frame-bg-color);
+  background: var(--default-bg-color);
+}
+
+.App > .WorkspaceToolbar + main {
+  margin-top: 3.2em;
+} 
+
+.WorkspaceToolbar ul {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: thick solid var(--frame-bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.WorkspaceToolbar li {
+  display: inline-block;
+  padding: 0 1em;
+}
+
+.WorkspaceToolbar li.current {
+  background: var(--frame-bg-color)
+}
+
+.WorkspaceToolbar a {
+  text-decoration: none;
+}
+
+.WorkspaceToolbar a:hover {
+  text-decoration: underline;
+}
+
+.WorkspaceToolbar .loadIndicator {
+  min-width: 1em;
+  display: inline-block;
+  text-align: right;
+}

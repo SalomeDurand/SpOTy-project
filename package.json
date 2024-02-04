@@ -1,0 +1,63 @@
+{
+  "name": "solid-ledger",
+  "version": "0.1.0",
+  "homepage": ".",
+  "private": true,
+  "dependencies": {
+    "@ldo/solid-react": "^0.0.1-alpha.27",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.79",
+    "@types/react": "^18.2.52",
+    "@types/react-dom": "^18.2.18",
+    "i18next": "^23.12.2",
+    "i18next-http-backend": "^2.5.2",
+    "leaflet": "^1.9.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.0.0",
+    "react-leaflet": "^4.2.1",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.22.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:ldo": "ldo build --input src/.shapes --output src/.ldo"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "*",
+    "@ldo/cli": "^0.0.1-alpha.17",
+    "@types/jsonld": "^1.5.13",
+    "@types/leaflet": "^1.9.12",
+    "@types/react-modal": "^3.16.3",
+    "@types/shexj": "^2.1.7",
+    "install": "^0.13.0",
+    "npm": "^10.8.2"
+  }
+}

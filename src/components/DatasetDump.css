@@ -1,0 +1,9 @@
+table.DatasetDump{
+  font-size: 50%;
+  font-family: monospace;
+}
+
+table.DatasetDump td {
+  max-width: 50em;
+}
+

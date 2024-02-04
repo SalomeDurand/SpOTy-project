@@ -1,0 +1,13 @@
+PREFIX solid: <http://www.w3.org/ns/solid/terms#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+<#TypeRegistration> EXTRA a {
+  a [ solid:TypeRegistration ]
+    // rdfs:comment "Defines the node as a TypeRegistration" ;
+  solid:forClass IRI
+    // rdfs:comment "the IRI of the class this TypeRegistration is about" ;
+  solid:instance IRI *
+    // rdfs:comment "instances of the registered type" ;
+  solid:instanceContainer IRI *
+    // rdfs:comment "containers containing instances of the registered type" ;
+}                     

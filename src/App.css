@@ -1,0 +1,98 @@
+:root {
+  --default-bg-color: #FAFAFA;
+  --frame-bg-color: #99CCCC;
+  --frame-fg-color: black;
+  --button-bg-color: #99CCCC;
+  --button-fg-color: black;
+  --error-bg-color: Pink;
+  --error-fg-color: DarkRed;
+}
+
+body {
+  margin: 0;
+}
+
+/* The top level layout of the app is expected to be: 
+    - a header,
+    - optionnally, one or several nav's
+    - a main
+    - a footer
+*/
+
+.App {
+  font-family: Roboto;
+  background: var(--default-bg-color);
+}
+
+.App > header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  font-weight: 700;
+}
+.App > header > a, .App > header abbr {
+  text-decoration: none;
+}
+.App > header > h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: inherit;
+}
+
+.App > footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.App > main {
+  margin: 1.3em 0.5ex 2.3em;
+  min-height: 50vh;
+}
+
+/* class banner: full-width colored banner used for the UI layout */
+
+.App .banner {
+  color: var(--frame-fg-color);
+  background-color: var(--frame-bg-color);
+  min-height: 1ex;
+  padding: 0 0.5ex;
+  width: calc(100%-1ex);
+  display: flex;
+  justify-content: space-between;
+}
+.App .banner > *:first-child {
+  text-align: left;
+}
+.App .banner > *:last-child {
+  text-align: right;
+}
+.App .banner > * {
+  text-align: center;
+}
+
+/* class error: for displaying error messages(!) */
+
+.App > .error {
+  color: var(--error-fg-color);
+  background-color: var(--error-bg-color);
+  border: thick solid var(--error-fg-color);
+  border-radius: 1.5em;
+  padding: 1em 0.6em;
+
+}
+
+/* class herelink: for links displayed next to headings or other elements,
+   to point to that place; those links are only displayed when the parent element is hovered
+*/
+
+.herelink {
+  display: none;
+  padding-left: 0.5ex;
+  font-size: 66%;
+  text-decoration: none;
+}
+
+*:hover > .herelink {
+  display: inline;
+}

@@ -1,0 +1,16 @@
+.LinkButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 100%;
+  padding: 0;
+}
+
+.LinkButton[disabled] {
+  cursor: not-allowed;
+}
+
+.LinkButton abbr {
+  text-decoration: none;
+}
+

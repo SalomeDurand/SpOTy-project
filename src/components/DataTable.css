@@ -1,0 +1,13 @@
+table.DataTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.DataTable th {
+  text-align: left;
+}
+
+table.DataTable td {
+  border: thin solid black;
+}
+

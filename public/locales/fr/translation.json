@@ -1,0 +1,47 @@
+{
+  "---- general ----": "",
+  "advanced": "Avancé",
+  "back": "retour",
+  "go": "Se connecter",
+  "in folder": "dans le dossier",
+  "login": "Connexion",
+  "logout": "Déconnexion",
+  "load more": "charger plus",
+  "loading": "chargement",
+  "open": "ouvrir",
+  "raw data": "Données brutes",
+  "select a type index": "Sélectionner un <em>type index</em>",
+  "validate": "valider",
+
+  "---- App ----": "",
+  "login in progress": "connexion en cours",
+
+  "---- Footer ----": "",
+  "logging in...": "connexion en cours...",
+  "logged in as {{name}}": "connecté: {{name}}",
+
+  "---- Loading ----": "",
+  "loading...": "chargement...",
+
+  "---- Login ----": "",
+  "login with": "se connecter avec",
+  "or select an IDP from the list": "ou sélectionner un IDP depuis la liste",
+
+  "---- IdpPicker ----": "",
+  "remove from list": "retirer de la liste",
+
+  "---- Preferences ----": "",
+  "preferences": "préférences",
+  "language": "Langue ",
+  "English": "anglais",
+  "French": "français",
+  "locale": "Localisation ",
+  "NB: at the moment, the preferences are saved in your browser, but not on your pod.": "NB: pour le moment, les préférences sont enregistrées dans votre navigateur, pas dans votre pod.",
+
+  "---- About ----": "",
+  "about": "À propos",
+  "about {{what}}": "À propos de {{what}}",
+  "source code on {{repo}}": "code source sur {{repo}}",
+
+  "---- EOF ----": ""
+}

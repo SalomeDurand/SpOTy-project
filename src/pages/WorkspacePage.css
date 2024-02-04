@@ -1,0 +1,16 @@
+.WorkspacePage .sentences * > .tools {
+  display: none;
+}
+
+.WorkspacePage .sentences *:hover > .tools {
+  display: inline;
+  margin-left: 1ex;
+}
+
+.WorkspacePage .sentences * > .tools > * {
+  margin-right: 0.5ex;
+}
+
+.WorkspacePage .sentences * > .tools * {
+  text-decoration: none;
+}

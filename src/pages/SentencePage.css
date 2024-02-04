@@ -1,0 +1,18 @@
+.SentencePage table.xlslike {
+  margin-top: 1ex;
+}
+
+.SentencePage table.xlslike th, table.xlslike td {
+  border: thin solid black;
+  padding: 0.25ex 0.5ex;
+}
+
+.SentencePage .videoplayer {
+  float: right;
+  width: 12em;
+  margin: 1ex 0 0 1ex;
+}
+
+.SentencePage .videoplayer video {
+  width: 100%;
+}

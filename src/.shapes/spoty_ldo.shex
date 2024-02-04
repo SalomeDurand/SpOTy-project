@@ -1,0 +1,78 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX ontolex: <http://www.w3.org/ns/lemon/ontolex#>
+PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#>
+PREFIX schema:  <https://schema.org/>
+PREFIX wdt:     <http://www.wikidata.org/prop/direct/>
+
+PREFIX spoty: <https://w3id.org/SpOTy/ontology#>
+PREFIX : <https://w3id.org/SpOTy/ontology#>
+
+BASE <https://w3id.org/SpOTy/shapes-ldo>
+
+<#Sentence> {
+    a [ :Sentence ] ;
+    a IRI* ;
+    schema:identifier xsd:string ;
+    :language @<#Language> ;
+    :extractedFrom xsd:string ;
+    :transcription xsd:string? ;
+    :orthography rdf:langString?;
+    :translation rdf:langString?;
+    :source xsd:string? ;
+    :trajectoiresId xsd:integer? ;
+    :firstToken @<#Token> ;
+    :lastToken @<#Token> ;
+}
+
+<#Language> {
+    wdt:P220 xsd:string+ ;
+    a IRI*;
+	rdfs:label rdf:langString;
+    # these properties need to be improved
+    spoty:macroarea xsd:string?;
+    spoty:genus xsd:string?;
+    spoty:phylum xsd:string?;
+    spoty:center @<#Center>;
+    spoty:order_svo xsd:string?;
+    spoty:adpositions xsd:string?;
+    spoty:svc xsd:string?;
+}
+
+<#Center> {
+  schema:longitude xsd:string;
+  schema:latitude xsd:string;
+}
+
+<#Token> {
+    a [ :Token ] ;
+    a IRI* ;#     :gloss rdf:langString? ;
+	:ttranscription xsd:string ;
+    :originalGloss rdf:langString? ;
+    :gloss rdf:langString? ;
+    :clause xsd:integer MININCLUSIVE 1 ;
+    :nextAnnotatedToken IRI ? ;
+    :morphoSyntax @<#MorphoSyntax> * ;
+    :semantics @<#Semantics> * ;
+    :nextToken @<#Token>? ;
+    ^:lastToken IRI ;
+}
+
+<#MorphoSyntax> {
+   skos:inScheme IRI?;
+   skos:broader @<#MorphoSyntax>* ;
+   spoty:code xsd:string;
+   rdfs:label rdf:langString;
+   rdfs:comment rdf:langString;
+}
+
+<#Semantics> {
+   skos:inScheme IRI?;
+   skos:broader @<#Semantics>* ;
+   spoty:code xsd:string?;
+   rdfs:label rdf:langString?;
+   rdfs:comment rdf:langString?;
+}
