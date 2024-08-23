@@ -18,7 +18,7 @@ export const StimulusLink: FunctionComponent<
 export function mediaUrl(stimulus: number | string | undefined) {
   switch (typeof(stimulus)) {
     case "number":
-      return `http://vps-6ad181ed.vps.ovh.net/static/stimuli/${stimulus}.webm`;
+      return `https://w3id.org/SpOTy/stimuli/${stimulus}.webm`;
     case "string":
       return stimulus;
     default:
