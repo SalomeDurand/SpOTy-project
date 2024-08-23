@@ -116,7 +116,7 @@ export function useEffectLoadFullProfile(
 
   if (guard === undefined) { guard = true; }
   useEffect(() => {
-    console.debug("useEffectLoadProfile", guard, webId);
+    console.debug("useEffectLoadProfile");
     if (guard && webId) {
       loadProfilePart(webId).then(finalize);
     }
