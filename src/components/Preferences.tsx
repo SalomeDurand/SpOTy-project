@@ -4,11 +4,13 @@ import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
+import { useSolidAuth } from "@ldo/solid-react";
 
 // This component allows the user to edit their preferences.
 export const Preferences: FunctionComponent = () => {
   console.debug("Preferences: rendering")
 
+  const { session } = useSolidAuth();
   const [ appCtx, dispatch ] = useAppContext();
   const { t } = useTranslation();
 
@@ -38,8 +40,11 @@ export const Preferences: FunctionComponent = () => {
         onChange={evt => setLocaleSuffix(evt.target.value)}
       />
     </label></p>
-
-    <p>{t("NB: at the moment, the preferences are saved in your browser, but not on your pod.")}</p>
+  
+    { session.isLoggedIn
+    ? <p>{t("NB: at the moment, the preferences are saved in your browser, but not on your pod.")}</p>
+    : null
+    }
   </>
 }
 
