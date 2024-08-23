@@ -11,6 +11,7 @@ import { cap } from "../lib/cap"
 import { spoty } from "../lib/ns"
 import { useProfile } from "../lib/profile"
 import { useAllRegisteredContainers } from "../lib/typeIndexes"
+import appInfo from "../app-info.json";
 
 
 // Home page of the application, shows a list of available workspaces.
@@ -26,7 +27,7 @@ export const Home: FunctionComponent = () => {
   const nsCommon = { ns: "translation" };
 
   return <>
-    <Header>SpOTy</Header>
+    <Header>{appInfo.name}</Header>
     <main>
       { session.isLoggedIn
       ? <>

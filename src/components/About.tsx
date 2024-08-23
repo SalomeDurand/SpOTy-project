@@ -3,17 +3,36 @@ import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
+import appInfo from "../app-info.json";
 
-// This component allows the user to edit their preferences.
+// This component shows general information about the app.
 export const About: FunctionComponent = () => {
   console.debug("About: rendering")
 
   const { t } = useTranslation();
 
+  const cr = appInfo.copyright;
+
   return <>
-    <h1>{cap(t('about {{what}}', { what: "SpOTy" }))}</h1>
-    <p>©2024 <a href="//champin.net/">P-A Champin</a></p>
-    <p><a href="https://gitlab.com/pchampin/solid-spoty">{cap(t('source code on {{repo}}', {repo: "Gitlab"}))}</a></p>
+    <h1>{cap(t('about {{what}}', { what: appInfo.name }))}</h1>
+    <p>©{cr.years} <a href={cr.url}>{cr.holder}</a></p>
+    <p><a href={appInfo.repo.url}>{cap(t('source code on {{repo}}', {repo: appInfo.repo.service}))}</a></p>
+    { appInfo.contributors.length
+      ? <>
+          <p>Contributors:</p>
+          <ul>
+            { appInfo.contributors.map(c =>
+              <li key={c.name}>
+                { c.url
+                  ? <a href={c.url}>{c.name}</a>
+                  : c.name
+                }
+              </li>
+            )}
+          </ul>
+        </>
+      : null
+    }
   </>
 }
 

@@ -1,0 +1,22 @@
+{
+  "name": "SpOTy",
+  "copyright": {
+    "years": "2024",
+    "holder": "P-A Champin",
+    "url": "https://champin.net"
+  },
+  "repo": {
+    "service": "Gitlab",
+    "url": "https://gitlab.com/pchampin/solid-spoty"
+  },
+  "contributors": [
+    {
+      "name": "Antoine Dufour",
+      "url": "https://github.com/antoine-df"
+    },
+    {
+      "name": "Victor M. Smith",
+      "url": "https://github.com/MVS-source"
+    }
+  ]
+}

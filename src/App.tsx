@@ -21,6 +21,7 @@ import { SentencePage } from './pages/SentencePage';
 import { MapPage } from './pages/MapPage';
 import { cap } from './lib/cap';
 import { WorkspaceLayout } from './layout/WorkspaceLayout';
+import appInfo from "./app-info.json";
 // CSS
 import "./App.css";
 
@@ -82,7 +83,7 @@ const AppInner: FunctionComponent = () => {
 
   if (!ontology.isFetched() && !languages.isFetched()) {
     return <>
-      <Loading asPage="SpOTy">
+      <Loading asPage={appInfo.name}>
         {cap(t("loading ontology", { ns: 'spoty' }))}
       </Loading>
     </>;
@@ -91,7 +92,7 @@ const AppInner: FunctionComponent = () => {
   return (<>
     {
       appCtx.loginInProgress
-      ? <Loading asPage="SpOTy">{cap(t("login in progress"))}</Loading>
+      ? <Loading asPage={appInfo.name}>{cap(t("login in progress"))}</Loading>
       : <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/w/new" element={<NewWorkspace onCreate={gotoWorkspace} />} />

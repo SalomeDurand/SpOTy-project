@@ -6,6 +6,7 @@ import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
+import appInfo from "../app-info.json";
 
 export const DEFAULT_IDP = "https://solidcommunity.net"
 
@@ -47,7 +48,7 @@ export const Login: FunctionComponent = () => {
     // in the localStorage.
     setTimeout(() => {
       dispatch({ type: "setLoginInProgress" })
-      login(sanIdp, { clientName: "SpOTy" });
+      login(sanIdp, { clientName: appInfo.name });
     }, 0);
   };
 

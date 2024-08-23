@@ -41,6 +41,7 @@
   "---- About ----": "",
   "about": "À propos",
   "about {{what}}": "À propos de {{what}}",
+  "Contributors:" : "Contributeurs :",
   "source code on {{repo}}": "code source sur {{repo}}",
 
   "---- EOF ----": ""
