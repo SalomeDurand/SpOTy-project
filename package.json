@@ -1,7 +1,7 @@
 {
   "name": "solid-ledger",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "@ldo/solid-react": "^0.0.1-alpha.27",
