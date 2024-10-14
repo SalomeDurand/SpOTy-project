@@ -34,6 +34,7 @@ export const SPOTY = "https://w3id.org/SpOTy/ontology#";
 
 export const spoty = {
   SentenceCollection: SPOTY + 'SentenceCollection',
+  error: SPOTY + 'error',
   Sentence: SPOTY + 'Sentence',
   language: SPOTY + 'language',
   trajectoiresId: SPOTY + 'trajectoiresId',

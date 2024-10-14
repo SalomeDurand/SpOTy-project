@@ -123,6 +123,7 @@ const LeafItem: FunctionComponent<{
 }) => {
   const label = decodeURIComponent(lastPart(leaf.uri));
   const { dataset } = useLdo();
+  const [errors, setErrors] = useState<string[]>();
   const [sentences, setSentences] = useState<string[]>();
   const { t } = useTranslation("spoty");
   const { session } = useSolidAuth();
@@ -138,16 +139,29 @@ const LeafItem: FunctionComponent<{
     );
   }, [dataset, dataset.size, leaf]);
 
+  useEffect(() => {
+    setErrors(
+      dataset
+      .match(makeNamedNode(leaf.uri), makeNamedNode(spoty.error), null)
+      .toArray()
+      .map(q => q.object.value)
+      .sort(cmpStr)
+    );
+  }, [dataset, dataset.size, leaf]);
+
   const deleteLeaf = useCallback(() => {
     if (window.confirm(`Confirm deleting ${label}?`)) {
       leaf.delete().then(refreshContainer);
     }
   }, [label, leaf, refreshContainer])
 
+  const ERR = <span className="error">⚠ </span>;
+
   return <li><details>
     <summary>
-      🗋 {label} 
+      🗋  {label} 
       {" "} ({sentences?.length || "⏳"})
+      {errors?.length ? <> {ERR}</> : null}
       <span className="tools">
         { session.isLoggedIn 
           ? <LinkButton help={t("rename") + " NOT IMPLEMENTED YET"} onClick={() => {}} disabled={true}>✏️</LinkButton>
@@ -162,9 +176,10 @@ const LeafItem: FunctionComponent<{
         <LinkIcon href={leaf.uri} />
       </span>
     </summary>
-    { leaf.isUnfetched() || sentences === undefined
+    { leaf.isUnfetched() || errors == undefined || sentences === undefined
       ? <ul><li>⏳</li></ul>
       : <ul>
+          { errors.map(e => <li key={e}>{ERR} {e}</li>) }
           { sentences.map(s => <li key={s}>🗩 <SentenceLink uri={s} /></li>) }
         </ul>
     }

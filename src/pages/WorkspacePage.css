@@ -7,10 +7,14 @@
   margin-left: 1ex;
 }
 
-.WorkspacePage .sentences * > .tools > * {
+.WorkspacePage .sentences .tools > * {
   margin-right: 0.5ex;
 }
 
-.WorkspacePage .sentences * > .tools * {
+.WorkspacePage .sentences .tools * {
   text-decoration: none;
+}
+
+.WorkspacePage .sentences .error {
+  color: red;
 }

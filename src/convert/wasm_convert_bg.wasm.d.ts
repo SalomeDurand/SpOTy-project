@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
-export function __wbg_spotyconverter_free(a: number): void;
+export function __wbg_spotyconverter_free(a: number, b: number): void;
 export function spotyconverter_new(a: number, b: number): number;
 export function spotyconverter_populate(a: number, b: number, c: number, d: number, e: number): void;
 export function spotyconverter_serialize(a: number, b: number): void;
