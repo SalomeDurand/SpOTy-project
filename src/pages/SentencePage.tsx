@@ -40,7 +40,7 @@ export const SentencePage: FunctionComponent = () => {
   
   const content = (sentence.language === undefined)
     ? <Loading>{sentenceUri} is not loaded yet</Loading>
-    : <SentencePageInner sentence={sentence} title={title} />
+    : <SentencePageInner sentence={sentence} title={title} noWs={wsCtx === undefined} />
 
   return (wsCtx === undefined)
     ? <>
@@ -56,9 +56,11 @@ export const SentencePage: FunctionComponent = () => {
 const SentencePageInner: FunctionComponent<{
   sentence: Sentence,
   title: string,
+  noWs?: boolean,
 }> = ({
   sentence,
   title,
+  noWs,
 }) => {
   const { t } = useTranslation('spoty');
 
@@ -81,7 +83,7 @@ const SentencePageInner: FunctionComponent<{
 
     <h2>
       {title}
-      <SentenceLink sentence={sentence} noWs><ShareIcon/></SentenceLink>
+      {noWs ? null : <SentenceLink sentence={sentence} noWs><ShareIcon/></SentenceLink>}
     </h2>
 
     <table className="xlslike"><tbody>
