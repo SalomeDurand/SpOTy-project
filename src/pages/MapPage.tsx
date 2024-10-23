@@ -38,7 +38,7 @@ export const MapPage: FunctionComponent = () => {
     .map( ([langUri, count]) => [ factory.fromSubject(langUri), count]);
   let minCount = markers.map(pair => pair[1]).reduce((old, val) => Math.min(old, val), 999999)
   let maxCount = markers.map(pair => pair[1]).reduce((old, val) => Math.max(old, val), 0);
-  if (minCount == maxCount) {
+  if (minCount === maxCount) {
     minCount = 0;
   }
 

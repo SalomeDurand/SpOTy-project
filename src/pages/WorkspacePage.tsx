@@ -176,7 +176,7 @@ const LeafItem: FunctionComponent<{
         <LinkIcon href={leaf.uri} />
       </span>
     </summary>
-    { leaf.isUnfetched() || errors == undefined || sentences === undefined
+    { leaf.isUnfetched() || errors === undefined || sentences === undefined
       ? <ul><li>⏳</li></ul>
       : <ul>
           { errors.map(e => <li key={e}>{ERR} {e}</li>) }
