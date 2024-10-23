@@ -2,11 +2,11 @@ import { FunctionComponent, KeyboardEvent, ReactNode, useRef, useState } from "r
 import { useSolidAuth } from "@ldo/solid-react";
 import { useAppContext } from "./AppContext";
 import { IdpPicker, loadIdps, saveIdp } from "./IdpPicker";
-import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
 import appInfo from "../app-info.json";
+import { Modal } from "./Modal";
 
 export const DEFAULT_IDP = "https://solidcommunity.net"
 
@@ -101,10 +101,8 @@ export const LoginDialogButton: FunctionComponent<{
 
   return <>
     <LinkButton onClick={() => setShowDialog(true)}>{children ?? cap(t('login'))}</LinkButton>
-    <ReactModal isOpen={showDialog}
-      onRequestClose={() => setShowDialog(false)}
-    >
+    <Modal show={showDialog} setShow={setShowDialog}>
       <Login />
-    </ReactModal>
+    </Modal>
   </>;
 }

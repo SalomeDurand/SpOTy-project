@@ -1,10 +1,10 @@
 import { FunctionComponent, useState } from "react"
 import { useAppContext } from "./AppContext";
-import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
 import { useSolidAuth } from "@ldo/solid-react";
+import { Modal } from "./Modal";
 
 // This component allows the user to edit their preferences.
 export const Preferences: FunctionComponent = () => {
@@ -58,10 +58,10 @@ export const PreferencesDialogButton: FunctionComponent = () => {
 
   return <>
     <LinkButton onClick={() => setShowDialog(true)} help={cap(t('preferences'))}>⚙</LinkButton>
-    <ReactModal isOpen={showDialog}
-      onRequestClose={() => setShowDialog(false)}
+    <Modal show={showDialog}
+      setShow={setShowDialog}
     >
       <Preferences/>
-    </ReactModal>
+    </Modal>
   </>;
 }

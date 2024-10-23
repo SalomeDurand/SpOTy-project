@@ -1,9 +1,9 @@
 import { FunctionComponent, useState } from "react"
-import ReactModal from "react-modal";
 import { useTranslation } from "react-i18next";
 import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
 import appInfo from "../app-info.json";
+import { Modal } from "./Modal";
 
 // This component shows general information about the app.
 export const About: FunctionComponent = () => {
@@ -19,7 +19,7 @@ export const About: FunctionComponent = () => {
     <p><a href={appInfo.repo.url}>{cap(t('source code on {{repo}}', {repo: appInfo.repo.service}))}</a></p>
     { appInfo.contributors.length
       ? <>
-          <p>Contributors:</p>
+          <p>{cap(t('contributors'))}</p>
           <ul>
             { appInfo.contributors.map(c =>
               <li key={c.name}>
@@ -46,10 +46,8 @@ export const AboutDialogButton: FunctionComponent = () => {
 
   return <>
     <LinkButton onClick={() => setShowDialog(true)}>{cap(t('about'))}</LinkButton>
-    <ReactModal isOpen={showDialog}
-      onRequestClose={() => setShowDialog(false)}
-    >
+    <Modal show={showDialog} setShow={setShowDialog}>
       <About/>
-    </ReactModal>
+    </Modal>
   </>;
 }
