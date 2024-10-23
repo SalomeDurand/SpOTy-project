@@ -1,13 +1,16 @@
 import { useLdo } from "@ldo/solid-react";
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import { DataTable } from "../components/DataTable";
 import { StimulusLink } from "../components/StimulusLink";
 import { useWsContext } from "../components/WsContext";
+import { cap } from "../lib/cap";
 import { makeNamedNode } from "../lib/nodes";
 import { spoty } from "../lib/ns";
 
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();
+  const { t } = useTranslation('spoty');
 
   const wsContext = useWsContext();
 
@@ -31,8 +34,8 @@ export const StimuliPage: FunctionComponent = () => {
 
   return <DataTable>
     <thead><tr>
-      <th>Stimulus</th>
-      <th>Sentences</th>
+      <th>{cap(t('stimulus'))}</th>
+      <th>{cap(t('sentence', {count: 2}))}</th>
     </tr></thead>
     <tbody>
       { rows.map(row => <tr key={row.trajId}>

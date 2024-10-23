@@ -1,6 +1,7 @@
 import { Container, ContainerUri, Leaf, LeafUri } from "@ldo/solid";
 import { useLdo } from "@ldo/solid-react";
 import { ChangeEvent, FunctionComponent, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getStorageUris, useProfile } from "../lib/profile";
 
 // Show a form allowing the user to create a new leaf (non-container resource) on ther pod.
@@ -50,6 +51,7 @@ const CreateResource: FunctionComponent<{
   container,
   disabled,
 }) => {
+  const { t } = useTranslation();
   const { getResource } = useLdo();
   const profile = useProfile();
   if (profile === undefined) { throw new Error("unreachable"); }
@@ -79,9 +81,9 @@ const CreateResource: FunctionComponent<{
 
   const explanation = 
     failed
-    ? "Creation failed"
+    ? t("Creation failed")
     : creating
-    ? "⏳ Creating..."
+    ? t("⏳ Creating...")
     : probe ;
 
   const canCreate = explanation === undefined;
@@ -101,20 +103,20 @@ const CreateResource: FunctionComponent<{
         .then(() => {
           setProbe(
             res.isError
-            ? "Can not reach resource"
+            ? t("Can not reach resource")
             : res.isPresent()
-            ? "Resource already exists"
+            ? t("Resource already exists")
             : undefined
           );
         })
         .catch(() => {
-          setProbe("Can not reach resource")
+          setProbe(t("Can not reach resource"))
         })
         .finally(() => {
           timeoutRef.current = undefined;
         });
     }, 500);
-  }, [path, toCreateUri, getResource, container])
+  }, [path, toCreateUri, getResource, container, t])
 
   const handleChangeRoot = (evt: ChangeEvent<HTMLSelectElement>) => {
     setFailed(false);

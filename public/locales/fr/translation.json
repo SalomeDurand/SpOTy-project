@@ -2,6 +2,7 @@
   "---- general ----": "",
   "advanced": "Avancé",
   "back": "retour",
+  "close": "fermer",
   "go": "Se connecter",
   "in folder": "dans le dossier",
   "login": "Connexion",
@@ -10,8 +11,14 @@
   "loading": "chargement",
   "open": "ouvrir",
   "raw data": "Données brutes",
-  "select a type index": "Sélectionner un <em>type index</em>",
   "validate": "valider",
+
+  "---- CreateResource ----": "",
+  "select a type index": "Sélectionner un index de types",
+  "⏳ Creating...": "⏳ Création...",
+  "Creation failed": "La création a échoué",
+  "Can not reach path": "Resource introuvable",
+  "Resource already exists": "La ressource existe déjà",
 
   "---- App ----": "",
   "login in progress": "connexion en cours",
@@ -41,8 +48,11 @@
   "---- About ----": "",
   "about": "À propos",
   "about {{what}}": "À propos de {{what}}",
-  "Contributors:" : "Contributeurs :",
+  "contributors" : "contributeurs",
   "source code on {{repo}}": "code source sur {{repo}}",
+
+  "---- ShareIcon ----": "",
+  "share": "partager",
 
   "---- EOF ----": ""
 }

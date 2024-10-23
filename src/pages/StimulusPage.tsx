@@ -55,9 +55,9 @@ export const StimulusPage: FunctionComponent = () => {
     ? <p>⏳</p>
     : <DataTable>
         <thead><tr>
-          <th>Sentence</th>
-          <th>Language</th>
-          <th>Translation</th>
+          <th>{cap(t("sentence"))}</th>
+          <th>{cap(t('language'))}</th>
+          <th>{cap(t('translation'))}</th>
         </tr></thead>
         <tbody>
           { sentences.map(s => <tr key={s['@id']}>
