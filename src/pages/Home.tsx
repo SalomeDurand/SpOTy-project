@@ -53,7 +53,7 @@ export const Home: FunctionComponent = () => {
 }
 
 // URL of the demo ledger
-export const DEMO_WORKSPACE= "https://solid.champin.net/pa/public/spoty-demo/";
+export const DEMO_WORKSPACE= "https://karlseifen.solidcommunity.net/SpotyData/";
 
 const WorkspaceList: FunctionComponent = () => {
   // console.debug("getLedgerList");
