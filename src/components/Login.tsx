@@ -1,5 +1,5 @@
 import { FunctionComponent, KeyboardEvent, ReactNode, useRef, useState } from "react"
-import { useSolidAuth } from "@ldo/solid-react";
+import { LoginOptions, useSolidAuth } from "@ldo/solid-react";
 import { useAppContext } from "./AppContext";
 import { IdpPicker, loadIdps, saveIdp } from "./IdpPicker";
 import { useTranslation } from "react-i18next";
@@ -48,7 +48,7 @@ export const Login: FunctionComponent = () => {
     // in the localStorage.
     setTimeout(() => {
       dispatch({ type: "setLoginInProgress" })
-      login(sanIdp, { clientName: appInfo.name });
+      login(sanIdp, loginOptions());
     }, 0);
   };
 
@@ -105,4 +105,27 @@ export const LoginDialogButton: FunctionComponent<{
       <Login />
     </Modal>
   </>;
+}
+
+// Compute the OIDC login options, based on the current deplotment (production vs. localhost)
+//
+// See https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/authenticate-client/
+function loginOptions(): LoginOptions {
+  if (window.location.href.startsWith(appInfo.url)) {
+    return {
+      clientName: appInfo.name,
+      clientId: appInfo.url + "appId.json",
+      redirectUrl: appInfo.url,
+    }
+  } else if (window.location.href.startsWith("http://localhost:3000/")) {
+    return {
+      clientName: "Test Solid App on localhost:3000",
+      clientId: "https://champin.net/2024/testAppId.json",
+      redirectUrl: "http://localhost:3000/"
+    }
+  } else {
+    return {
+      clientName: appInfo.name + " TEST",
+    }
+  }
 }
