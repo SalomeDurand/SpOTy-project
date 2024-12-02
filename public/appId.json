@@ -1,16 +1,16 @@
 {
   "@context": "https://www.w3.org/ns/solid/oidc-context.jsonld",
-  "client_id": "http://localhost:3000/appId.json",
-  "redirect_uris": [ "http://localhost:3000/" ],
+  "client_id": "https://spoty.champin.net/appId.json",
+  "redirect_uris": [ "https://spoty.champin.net" ],
   "client_name": "SpOTy",
-  "client_uri": "http://localhost:3000/",
-  "logo_uri": "http://localhost:3000/logo512.png",
-  "tos_uri": "http://localhost:3000/TODO",
-  "policy_uri": "http://localhost:3000/TODO",
+  "client_uri": "https://spoty.champin.net",
+  "logo_uri": "https://spoty.champin.net/logo512.png",
+  "tos_uri": "https://spoty.champin.net/TODO",
+  "policy_uri": "https://spoty.champin.net/TODO",
   "contacts": [
     "pierre-antoine.champin@univ-lyon1.fr"
   ],
-  "scope": "openid webid offline_access",
+  "scope": "openid offline_access webid",
   "grant_types": [
     "authorization_code",
     "refresh_token"

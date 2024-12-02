@@ -114,7 +114,7 @@ function loginOptions(): LoginOptions {
   if (window.location.href.startsWith(appInfo.url)) {
     return {
       clientName: appInfo.name,
-      clientId: appInfo.url + "appId.json",
+      clientId: appInfo.url + "/appId.json",
       redirectUrl: appInfo.url,
     }
   } else if (window.location.href.startsWith("http://localhost:3000/")) {
