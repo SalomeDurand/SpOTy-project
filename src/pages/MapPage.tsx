@@ -53,7 +53,7 @@ export const MapPage: FunctionComponent = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      { markers.map( ([language, count]) => {
+      { markers.filter( ([language, _]) => language.center).map( ([language, count]) => {
         const center: [number, number] = [
           parseFloat(language.center.latitude),
           parseFloat(language.center.longitude),
