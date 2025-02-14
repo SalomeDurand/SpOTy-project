@@ -10,9 +10,8 @@
   "contacts": [
     "pierre-antoine.champin@univ-lyon1.fr"
   ],
-  "scope": "openid offline_access webid",
+  "scope": "openid webid",
   "grant_types": [
-    "authorization_code",
-    "refresh_token"
+    "authorization_code"
   ]
 }
