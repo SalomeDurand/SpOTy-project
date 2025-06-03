@@ -35,16 +35,15 @@ export const Home: FunctionComponent = () => {
           <p><Link to="/w/new">{t('create a new workspace')}</Link></p>
         </>
       : <p><Trans t={t}>
-          Try this <WorkspaceLink to={DEMO_WORKSPACE}>demo workspace</WorkspaceLink
-          > or <LoginDialogButton>login</LoginDialogButton> to create your own.
+          Try this <WorkspaceLink to={DEMO_WORKSPACE}>demo workspace</WorkspaceLink> or <LoginDialogButton>login</LoginDialogButton> to create your own.
         </Trans></p>
       }
       <details>
         <summary>{cap(t('advanced', nsCommon))}</summary>
         <p>
-          <label>{t('Open workspace by URL:')
-            } <input value={custom} onChange={evt => setCustom(evt.target.value)} /
-            > <WorkspaceLink to={custom as ContainerUri}>{t('open', nsCommon)}</WorkspaceLink>
+          <label>{t('Open workspace by URL:')}
+            <input value={custom} onChange={evt => setCustom(evt.target.value)} />
+            <WorkspaceLink to={custom as ContainerUri}>{t('open', nsCommon)}</WorkspaceLink>
           </label>
         </p>
       </details>
