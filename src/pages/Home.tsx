@@ -35,7 +35,7 @@ export const Home: FunctionComponent = () => {
           <p><Link to="/w/new">{t('create a new workspace')}</Link></p>
         </>
       : <p><Trans t={t}>
-          Try this <WorkspaceLink to={DEMO_WORKSPACE}>demo workspace</WorkspaceLink> or <LoginDialogButton>login</LoginDialogButton> to create your own.
+          Try this <WorkspaceLink to={DEMO_WORKSPACE}>demo workspace</WorkspaceLink> or <LoginDialogButton className="homeLoginButton">login</LoginDialogButton> to create your own.
         </Trans></p>
       }
       <details>

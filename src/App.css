@@ -50,6 +50,10 @@ body {
   min-height: 50vh;
 }
 
+.homeLoginButton {
+  text-decoration: underline;
+}
+
 /* class banner: full-width colored banner used for the UI layout */
 
 .App .banner {

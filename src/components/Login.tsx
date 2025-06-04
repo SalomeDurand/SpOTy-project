@@ -90,8 +90,10 @@ function sanitizeIdp(idp: string): string {
 
 // This component display a 'Login' link that opens a modal window displaying `Login`.
 export const LoginDialogButton: FunctionComponent<{
+  className?: string,
   children?: ReactNode,
 }> = ({
+  className,
   children,
 }) => {
   const [ showDialog, setShowDialog ] = useState(false);
@@ -100,7 +102,7 @@ export const LoginDialogButton: FunctionComponent<{
   console.debug("LoginButtonDialog: rendering");
 
   return <>
-    <LinkButton onClick={() => setShowDialog(true)}>{children ?? cap(t('login'))}</LinkButton>
+    <LinkButton className={className} onClick={() => setShowDialog(true)}>{children ?? cap(t('login'))}</LinkButton>
     <Modal show={showDialog} setShow={setShowDialog}>
       <Login />
     </Modal>
