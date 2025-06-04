@@ -134,7 +134,7 @@ const LeafItem: FunctionComponent<{
       .match(null, makeNamedNode(rdf.type), makeNamedNode(spoty.Sentence))
       .toArray()
       .map(q => q.subject.value)
-      .filter(iri => iri.startsWith(leaf.uri))
+      .filter(iri => iri.split('#')[0] === leaf.uri)
       .sort(cmpStr)
     );
   }, [dataset, dataset.size, leaf]);
