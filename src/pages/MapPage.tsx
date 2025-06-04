@@ -62,7 +62,7 @@ export const MapPage: FunctionComponent = () => {
         return <CircleMarker key={language['@id']} center={center} radius={radius}>
           <Popup>
             <LanguageLink language={language} /> <br/>
-            {language.phylum ? <><b>{t("phylym")}</b>: {language.phylum}<br/></> : null }
+            {language.phylum ? <><b>{t("phylum")}</b>: {language.phylum}<br/></> : null }
             {count} {t("sentence", {count: count})}
           </Popup>
         </CircleMarker>;
