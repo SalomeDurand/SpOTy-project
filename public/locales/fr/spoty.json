@@ -49,6 +49,7 @@
   "access raw data": "accéder aux données brutes",
   "rename": "renommer",
   "upload file": "téléverser un fichier",
+  "Confirm deleting {{label}}?": "Confirmer la suppression de {{label}} ?",
 
   "---- SentencePage ----": "",
   "CC": "CC",
