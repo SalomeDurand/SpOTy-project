@@ -1,5 +1,16 @@
+.SentencePage{
+  display: flex;
+  flex-direction: column;
+}
+
+.sentenceStimulus{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .SentencePage table.xlslike {
   margin-top: 1ex;
+  border-collapse: collapse;
 }
 
 .SentencePage table.xlslike th, table.xlslike td {
@@ -9,7 +20,7 @@
 
 .SentencePage .videoplayer {
   float: right;
-  width: 12em;
+  width: 20em;
   margin: 1ex 0 0 1ex;
 }
 
