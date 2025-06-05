@@ -17,6 +17,6 @@
   width: 100%;
 }
 
-abbr[title]{
+.SentencePage abbr[title]{
   cursor: help;
 }
