@@ -150,7 +150,6 @@ const LeafItem: FunctionComponent<{
   }, [dataset, dataset.size, leaf]);
 
   const deleteLeaf = useCallback(() => {
-    console.log("Traduction brute :", t('Confirm deleting {{label}}?', { label }));
     if (window.confirm(t("Confirm deleting {{label}}?", { label }))) {
       leaf.delete().then(refreshContainer);
     }

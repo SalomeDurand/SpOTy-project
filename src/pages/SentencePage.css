@@ -16,3 +16,7 @@
 .SentencePage .videoplayer video {
   width: 100%;
 }
+
+abbr[title]{
+  cursor: help;
+}
