@@ -9,9 +9,9 @@ import { spoty } from "../lib/ns";
 import DataTable from 'datatables.net-react';
 import DataTablesCore from 'datatables.net-dt';
 import 'datatables.net-buttons-dt';
-import 'datatables.net-colreorder-dt';
 import 'datatables.net-responsive-dt';
 import 'datatables.net-searchpanes-dt';
+import 'datatables.net-select-dt';
 // CSS
 import "../components/DataTable.css";
 
@@ -41,7 +41,23 @@ export const StimuliPage: FunctionComponent = () => {
     .sort((a, b) => a.trajId - b.trajId)
     ;
 
-  return <DataTable>
+  return <DataTable options={{
+                responsive: true,
+                buttons: true,
+                select: true,
+                layout: {
+                topStart: {
+                  buttons: [
+                    {
+                    extend: 'searchPanes',
+                    config: {
+                        cascadePanes: true
+                      }
+                    }
+                  ]
+                }
+              }
+            }}>
     <thead><tr>
       <th>{cap(t('stimulus'))}</th>
       <th>{cap(t('sentence', {count: 2}))}</th>

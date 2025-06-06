@@ -14,9 +14,9 @@ import { StimulusLink } from "../components/StimulusLink";
 import DataTable from 'datatables.net-react';
 import DataTablesCore from 'datatables.net-dt';
 import 'datatables.net-buttons-dt';
-import 'datatables.net-colreorder-dt';
 import 'datatables.net-responsive-dt';
 import 'datatables.net-searchpanes-dt';
+import 'datatables.net-select-dt';
 // CSS
 import "../components/DataTable.css";
 
@@ -80,7 +80,23 @@ const LanguagePageInner: FunctionComponent<{
       <dt>{t("Wikidata")}</dt><dd><a href={language['@id']}>{wdid}</a></dd>
     </dl>
 
-    <DataTable>
+    <DataTable options={{
+                responsive: true,
+                buttons: true,
+                select: true,
+                layout: {
+                topStart: {
+                  buttons: [
+                    {
+                    extend: 'searchPanes',
+                    config: {
+                        cascadePanes: true
+                      }
+                    }
+                  ]
+                }
+              }
+            }}>
       <thead><tr>
         <th>{cap(t("sentence"))}</th>
         <th>{cap(t("stimulus"))}</th>

@@ -14,9 +14,9 @@ import { spoty, xsd } from "../lib/ns";
 import DataTable from 'datatables.net-react';
 import DataTablesCore from 'datatables.net-dt';
 import 'datatables.net-buttons-dt';
-import 'datatables.net-colreorder-dt';
 import 'datatables.net-responsive-dt';
 import 'datatables.net-searchpanes-dt';
+import 'datatables.net-select-dt';
 // CSS
 import "../components/DataTable.css";
 import "./StimulusPage.css";
@@ -61,7 +61,23 @@ export const StimulusPage: FunctionComponent = () => {
 
     {sentences === undefined
     ? <p>⏳</p>
-    : <DataTable>
+    : <DataTable options={{
+                responsive: true,
+                buttons: true,
+                select: true,
+                layout: {
+                topStart: {
+                  buttons: [
+                    {
+                    extend: 'searchPanes',
+                    config: {
+                        cascadePanes: true
+                      }
+                    }
+                  ]
+                }
+              }
+            }}>
         <thead><tr>
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t('language'))}</th>
