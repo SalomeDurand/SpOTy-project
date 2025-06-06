@@ -54,5 +54,9 @@
   "---- ShareIcon ----": "",
   "share": "partager",
 
+  "---- DataTables ----": "",
+  "Showing page _PAGE_ of _PAGES_": "Page _PAGE_ sur _PAGES_",
+
+
   "---- EOF ----": ""
 }

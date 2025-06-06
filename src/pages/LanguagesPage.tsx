@@ -22,7 +22,7 @@ DataTable.use(DataTablesCore);
 
 export const LanguagesPage: FunctionComponent = () => {
   const { dataset } = useLdo();
-  const { t } = useTranslation('spoty');
+  const { t } = useTranslation(['spoty', 'translation']);
 
   const [appCtx] = useAppContext();
   const wsContext = useWsContext();
@@ -53,6 +53,9 @@ export const LanguagesPage: FunctionComponent = () => {
                 responsive: true,
                 buttons: true,
                 select: true,
+                language: {
+                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+                },
                 layout: {
                 topStart: {
                   buttons: [

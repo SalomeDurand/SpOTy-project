@@ -26,7 +26,7 @@ export const LanguagePage: FunctionComponent = () => {
   const params = useParams();
   const languageId = params.lid as string;
   const { dataset } = useLdo();
-  const { t } = useTranslation('spoty');
+  const { t } = useTranslation(['spoty', 'translation']);
 
   const [appCtx] = useAppContext();
 
@@ -84,6 +84,9 @@ const LanguagePageInner: FunctionComponent<{
                 responsive: true,
                 buttons: true,
                 select: true,
+                language: {
+                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+                },
                 layout: {
                 topStart: {
                   buttons: [

@@ -28,7 +28,7 @@ export const StimulusPage: FunctionComponent = () => {
   const sid = params.sid as string;
   const stimId = tryParseInt(sid);
   const { dataset } = useLdo();
-  const { t } = useTranslation('spoty');
+  const { t } = useTranslation(['spoty', 'translation']);
 
   const [appCtx] = useAppContext();
   const wsCtx = useWsContext();
@@ -65,6 +65,9 @@ export const StimulusPage: FunctionComponent = () => {
                 responsive: true,
                 buttons: true,
                 select: true,
+                language: {
+                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+                },
                 layout: {
                 topStart: {
                   buttons: [

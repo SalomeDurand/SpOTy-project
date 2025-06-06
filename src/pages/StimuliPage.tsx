@@ -19,7 +19,7 @@ DataTable.use(DataTablesCore);
 
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();
-  const { t } = useTranslation('spoty');
+  const { t } = useTranslation(['spoty', 'translation']);
 
   const wsContext = useWsContext();
 
@@ -45,6 +45,9 @@ export const StimuliPage: FunctionComponent = () => {
                 responsive: true,
                 buttons: true,
                 select: true,
+                language: {
+                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+                },
                 layout: {
                 topStart: {
                   buttons: [
