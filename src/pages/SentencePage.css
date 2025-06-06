@@ -28,6 +28,6 @@
   width: 100%;
 }
 
-.SentencePage abbr[title]{
+.sentenceStimulus abbr[title]{
   cursor: help;
 }
