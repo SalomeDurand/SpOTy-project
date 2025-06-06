@@ -11,7 +11,16 @@ import { spoty, wdt, xsd } from "../lib/ns";
 import { makeLiteral, makeNamedNode } from "../lib/nodes";
 import { SentenceLink } from "../components/SentenceLink";
 import { StimulusLink } from "../components/StimulusLink";
-import { DataTable } from "../components/DataTable";
+import DataTable from 'datatables.net-react';
+import DataTablesCore from 'datatables.net-dt';
+import 'datatables.net-buttons-dt';
+import 'datatables.net-colreorder-dt';
+import 'datatables.net-responsive-dt';
+import 'datatables.net-searchpanes-dt';
+// CSS
+import "./LanguagePage.css";
+
+DataTable.use(DataTablesCore); 
 
 export const LanguagePage: FunctionComponent = () => {
   const params = useParams();
