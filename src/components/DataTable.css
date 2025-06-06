@@ -1,13 +1,14 @@
-table.DataTable {
+@import url('datatables.net-dt');
+@import url('datatables.net-buttons-dt');
+@import url('datatables.net-colreorder-dt');
+@import url('datatables.net-responsive-dt');
+@import url('datatables.net-searchpanes-dt');
+
+table {
   width: 100%;
   border-collapse: collapse;
 }
 
-table.DataTable th {
-  text-align: left;
-}
-
-table.DataTable td {
+td {
   border: thin solid black;
 }
-

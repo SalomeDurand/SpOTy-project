@@ -18,7 +18,7 @@ import 'datatables.net-colreorder-dt';
 import 'datatables.net-responsive-dt';
 import 'datatables.net-searchpanes-dt';
 // CSS
-import "./LanguagePage.css";
+import "../components/DataTable.css";
 
 DataTable.use(DataTablesCore); 
 

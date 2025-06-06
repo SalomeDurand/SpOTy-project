@@ -1,12 +1,21 @@
 import { useLdo } from "@ldo/solid-react";
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import { DataTable } from "../components/DataTable";
 import { StimulusLink } from "../components/StimulusLink";
 import { useWsContext } from "../components/WsContext";
 import { cap } from "../lib/cap";
 import { makeNamedNode } from "../lib/nodes";
 import { spoty } from "../lib/ns";
+import DataTable from 'datatables.net-react';
+import DataTablesCore from 'datatables.net-dt';
+import 'datatables.net-buttons-dt';
+import 'datatables.net-colreorder-dt';
+import 'datatables.net-responsive-dt';
+import 'datatables.net-searchpanes-dt';
+// CSS
+import "../components/DataTable.css";
+
+DataTable.use(DataTablesCore); 
 
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();

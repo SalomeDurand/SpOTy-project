@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { SentenceShapeType } from "../.ldo/spoty_ldo.shapeTypes";
 import { useAppContext } from "../components/AppContext";
-import { DataTable } from "../components/DataTable";
 import { LanguageLink } from "../components/LanguageLink";
 import { SentenceLink } from "../components/SentenceLink";
 import { mediaUrl } from "../components/StimulusLink";
@@ -12,8 +11,17 @@ import { useWsContext } from "../components/WsContext";
 import { cap } from "../lib/cap";
 import { makeLiteral, makeNamedNode } from "../lib/nodes";
 import { spoty, xsd } from "../lib/ns";
+import DataTable from 'datatables.net-react';
+import DataTablesCore from 'datatables.net-dt';
+import 'datatables.net-buttons-dt';
+import 'datatables.net-colreorder-dt';
+import 'datatables.net-responsive-dt';
+import 'datatables.net-searchpanes-dt';
 // CSS
+import "../components/DataTable.css";
 import "./StimulusPage.css";
+
+DataTable.use(DataTablesCore); 
 
 export const StimulusPage: FunctionComponent = () => {
   const params = useParams();
