@@ -1,33 +1,26 @@
-.SentencePage{
-  display: flex;
-  flex-direction: column;
-}
-
-.sentenceStimulus{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .SentencePage table.xlslike {
-  margin-top: 1ex;
+  margin-top: 2ex;
+  margin-left: 2ex;
   border-collapse: collapse;
 }
 
 .SentencePage table.xlslike th, table.xlslike td {
   border: thin solid black;
-  padding: 0.25ex 0.5ex;
+  padding: 0.5ex 1ex;
+  text-align: left;
 }
 
 .SentencePage .videoplayer {
   float: right;
-  width: 20em;
+  width: 15em;
   margin: 1ex 0 0 1ex;
+  justify-self: end;
 }
 
 .SentencePage .videoplayer video {
   width: 100%;
 }
 
-.sentenceStimulus abbr[title]{
+.xlslike abbr[title]{
   cursor: help;
 }

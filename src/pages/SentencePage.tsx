@@ -74,13 +74,17 @@ const SentencePageInner: FunctionComponent<{
   }
 
   return <>
-  <h2>
+    { media 
+      ? <div className="videoplayer">
+          <video controls autoPlay loop src={media}></video>
+        </div>
+      : null
+    }
+    <h2>
       {title}
       {noWs ? null : <SentenceLink sentence={sentence} noWs><ShareIcon/></SentenceLink>}
-  </h2>
-
-  <div className="sentenceStimulus">
-    <div className="tables">
+    </h2>
+  
     <table className="xlslike"><tbody>
       <tr><th>{cap(t("language"))}</th> <td><LanguageLink language={sentence.language} /></td></tr>
       <OptionalMeta label={cap(t("stimulus"))} value={sentence.trajectoiresId}>
@@ -118,15 +122,6 @@ const SentencePageInner: FunctionComponent<{
       </tr>
         
     </tbody></table>
-    </div>
-
-    { media 
-      ? <div className="videoplayer">
-          <video controls autoPlay loop src={media}></video>
-        </div>
-      : null
-    }
-    </div>
   </>;
 }
 
