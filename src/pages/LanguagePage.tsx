@@ -69,7 +69,6 @@ const LanguagePageInner: FunctionComponent<{
       .setLanguagePreferences(appCtx.locale(), appCtx.preferences.language, "en");
     const sentences = wsCtx.sentenceUris.filter(filterByLanguage).map(uri => factory.fromSubject(uri));
 
-
     return <>
       <h2>{title}</h2>
 
@@ -115,6 +114,7 @@ const LanguagePageInner: FunctionComponent<{
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t("stimulus"))}</th>
           <th>{cap(t("translation"))}</th>
+          <th>{cap(t("source"))}</th>
         </tr></thead>
         <tbody>
           {sentences.map(s =>
@@ -122,6 +122,7 @@ const LanguagePageInner: FunctionComponent<{
               <td><SentenceLink sentence={s}>{s.identifier}</SentenceLink></td>
               <td>{s.trajectoiresId ? <StimulusLink stimulus={s.trajectoiresId} /> : null}</td>
               <td>{s.translation}</td>
+              <td>{s.extractedFrom.split('.')[0]}</td>
             </tr>
           )}
         </tbody>
