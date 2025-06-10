@@ -25,7 +25,7 @@
 
   "---- Footer ----": "",
   "logging in...": "connexion en cours...",
-  "logged in as {{name}}": "connecté : {{name}}",
+  "logged in as {{name}}": "connecté\u00A0: {{name}}",
 
   "---- Loading ----": "",
   "loading...": "chargement...",
