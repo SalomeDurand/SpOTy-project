@@ -19,7 +19,7 @@ DataTable.use(DataTablesCore);
 
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();
-  const { t } = useTranslation(['spoty', 'translation']);
+  const { i18n, t } = useTranslation(['spoty', 'translation']);
 
   const wsContext = useWsContext();
 
@@ -41,7 +41,7 @@ export const StimuliPage: FunctionComponent = () => {
     .sort((a, b) => a.trajId - b.trajId)
     ;
 
-  return <DataTable options={{
+  return <DataTable key={i18n.language} options={{
     responsive: true,
     select: true,
     destroy: true,

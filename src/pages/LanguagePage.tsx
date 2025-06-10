@@ -52,7 +52,7 @@ const LanguagePageInner: FunctionComponent<{
   title,
 }) => {
     const { dataset } = useLdo();
-    const { t } = useTranslation("spoty");
+    const { i18n, t } = useTranslation("spoty");
 
     const [appCtx] = useAppContext();
     const wsCtx = useWsContext();
@@ -80,7 +80,7 @@ const LanguagePageInner: FunctionComponent<{
         <dt>{t("Wikidata")}</dt><dd><a href={language['@id']}>{wdid}</a></dd>
       </dl>
 
-      <DataTable options={{
+      <DataTable key={i18n.language} options={{
         responsive: true,
         select: true,
         destroy: true,

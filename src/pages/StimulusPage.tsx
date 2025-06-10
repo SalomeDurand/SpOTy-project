@@ -28,7 +28,7 @@ export const StimulusPage: FunctionComponent = () => {
   const sid = params.sid as string;
   const stimId = tryParseInt(sid);
   const { dataset } = useLdo();
-  const { t } = useTranslation(['spoty', 'translation']);
+  const { i18n, t } = useTranslation(['spoty', 'translation']);
 
   const [appCtx] = useAppContext();
   const wsCtx = useWsContext();
@@ -61,7 +61,7 @@ export const StimulusPage: FunctionComponent = () => {
 
     {sentences === undefined
       ? <p>⏳</p>
-      : <DataTable options={{
+      : <DataTable key={i18n.language} options={{
         responsive: true,
         select: true,
         destroy: true,

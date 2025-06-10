@@ -22,7 +22,7 @@ DataTable.use(DataTablesCore);
 
 export const LanguagesPage: FunctionComponent = () => {
   const { dataset } = useLdo();
-  const { t } = useTranslation(['spoty', 'translation']);
+  const { i18n, t } = useTranslation(['spoty', 'translation']);
 
   const [appCtx] = useAppContext();
   const wsContext = useWsContext();
@@ -49,7 +49,7 @@ export const LanguagesPage: FunctionComponent = () => {
     .sort((a, b) => cmpStr(a.lang.label, b.lang.label));
 
 
-  return <DataTable options={{
+  return <DataTable key={i18n.language} options={{
     responsive: true,
     select: true,
     destroy: true,
