@@ -25,7 +25,7 @@
 
   "---- Footer ----": "",
   "logging in...": "connexion en cours...",
-  "logged in as {{name}}": "connecté : {{name}}",
+  "logged in as {{name}}": "connecté\u00A0: {{name}}",
 
   "---- Loading ----": "",
   "loading...": "chargement...",
@@ -43,12 +43,12 @@
   "English": "anglais",
   "French": "français",
   "locale": "Localisation ",
-  "NB: at the moment, the preferences are saved in your browser, but not on your pod.": "N.B. : pour le moment, les préférences sont enregistrées dans votre navigateur, pas dans votre pod.",
+  "NB: at the moment, the preferences are saved in your browser, but not on your pod.": "N.B.\u00A0: pour le moment, les préférences sont enregistrées dans votre navigateur, pas dans votre pod.",
 
   "---- About ----": "",
   "about": "À propos",
   "about {{what}}": "À propos de {{what}}",
-  "contributors" : "Contributeurs ",
+  "contributors" : "contributeurs",
   "source code on {{repo}}": "code source sur {{repo}}",
 
   "---- ShareIcon ----": "",
