@@ -20,7 +20,7 @@ import 'datatables.net-select-dt';
 // CSS
 import "../components/DataTable.css";
 
-DataTable.use(DataTablesCore); 
+DataTable.use(DataTablesCore);
 
 export const LanguagePage: FunctionComponent = () => {
   const params = useParams();
@@ -51,69 +51,69 @@ const LanguagePageInner: FunctionComponent<{
   language,
   title,
 }) => {
-  const { dataset } = useLdo();
-  const { t } = useTranslation("spoty");
+    const { dataset } = useLdo();
+    const { t } = useTranslation("spoty");
 
-  const [ appCtx ] = useAppContext();
-  const wsCtx = useWsContext();
+    const [appCtx] = useAppContext();
+    const wsCtx = useWsContext();
 
-  const wdid = language['@id']?.split('/').pop() as string;
+    const wdid = language['@id']?.split('/').pop() as string;
 
-  const spoty_language = makeNamedNode(spoty.language);
-  const languageUri = makeNamedNode(language['@id'] as string);
-  const filterByLanguage = (sentenceUri: string) => {
-    return dataset.match(makeNamedNode(sentenceUri), spoty_language, languageUri).toArray().length;
-  };
-  const factory = dataset
-    .usingType(SentenceShapeType)
-    .setLanguagePreferences(appCtx.locale(), appCtx.preferences.language, "en");
-  const sentences = wsCtx.sentenceUris.filter(filterByLanguage).map(uri => factory.fromSubject(uri));
-  
+    const spoty_language = makeNamedNode(spoty.language);
+    const languageUri = makeNamedNode(language['@id'] as string);
+    const filterByLanguage = (sentenceUri: string) => {
+      return dataset.match(makeNamedNode(sentenceUri), spoty_language, languageUri).toArray().length;
+    };
+    const factory = dataset
+      .usingType(SentenceShapeType)
+      .setLanguagePreferences(appCtx.locale(), appCtx.preferences.language, "en");
+    const sentences = wsCtx.sentenceUris.filter(filterByLanguage).map(uri => factory.fromSubject(uri));
 
-  return <>
-    <h2>{title}</h2>
 
-    <dl>
-      { language.genus ? <><dt>{cap(t("genus"))}</dt><dd>{language.genus}</dd></> : null }
-      { language.phylum ? <><dt>{cap(t("phylum"))}</dt><dd>{language.phylum}</dd></> : null }
-      { language.macroarea ? <><dt>{cap(t("macro-area"))}</dt><dd>{language.macroarea}</dd></> : null }
-      <dt>{t("Wikidata")}</dt><dd><a href={language['@id']}>{wdid}</a></dd>
-    </dl>
+    return <>
+      <h2>{title}</h2>
 
-    <DataTable options={{
-                responsive: true,
-                buttons: true,
-                select: true,
-                language: {
-                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
-                },
-                layout: {
-                topStart: {
-                  buttons: [
-                    {
-                    extend: 'searchPanes',
-                    config: {
-                        cascadePanes: true
-                      }
-                    }
-                  ]
-                }
-              }
-            }}>
-      <thead><tr>
-        <th>{cap(t("sentence"))}</th>
-        <th>{cap(t("stimulus"))}</th>
-        <th>{cap(t("translation"))}</th>
-      </tr></thead>
-      <tbody>
-        { sentences.map(s =>
+      <dl>
+        {language.genus ? <><dt>{cap(t("genus"))}</dt><dd>{language.genus}</dd></> : null}
+        {language.phylum ? <><dt>{cap(t("phylum"))}</dt><dd>{language.phylum}</dd></> : null}
+        {language.macroarea ? <><dt>{cap(t("macro-area"))}</dt><dd>{language.macroarea}</dd></> : null}
+        <dt>{t("Wikidata")}</dt><dd><a href={language['@id']}>{wdid}</a></dd>
+      </dl>
+
+      <DataTable options={{
+        responsive: true,
+        select: true,
+        destroy: true,
+        buttons: [
+          {
+            extend: 'searchPanes',
+            config: {
+              cascadePanes: true
+            }
+          }
+        ],
+        language: {
+          info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+        },
+        layout: {
+          topStart: 'pageLength',
+          topEnd: ['buttons', 'search'],
+        }
+      }}>
+        <thead><tr>
+          <th>{cap(t("sentence"))}</th>
+          <th>{cap(t("stimulus"))}</th>
+          <th>{cap(t("translation"))}</th>
+        </tr></thead>
+        <tbody>
+          {sentences.map(s =>
             <tr key={s['@id']}>
               <td><SentenceLink sentence={s}>{s.identifier}</SentenceLink></td>
               <td>{s.trajectoiresId ? <StimulusLink stimulus={s.trajectoiresId} /> : null}</td>
               <td>{s.translation}</td>
             </tr>
-        )}
-      </tbody>
-    </DataTable>
-  </>;
-}
+          )}
+        </tbody>
+      </DataTable>
+    </>;
+  }

@@ -21,7 +21,7 @@ import 'datatables.net-select-dt';
 import "../components/DataTable.css";
 import "./StimulusPage.css";
 
-DataTable.use(DataTablesCore); 
+DataTable.use(DataTablesCore);
 
 export const StimulusPage: FunctionComponent = () => {
   const params = useParams();
@@ -37,7 +37,7 @@ export const StimulusPage: FunctionComponent = () => {
   const media = mediaUrl(stimId);
 
   const trajId = makeNamedNode(spoty.trajectoiresId);
-  const stimNode = (typeof(stimId) === "number")
+  const stimNode = (typeof (stimId) === "number")
     ? makeLiteral(sid, xsd.integer)
     : makeNamedNode(sid)
     ;
@@ -52,46 +52,46 @@ export const StimulusPage: FunctionComponent = () => {
   return <div className="StimulusPage">
     <h2>{title}</h2>
 
-    { media 
-    ? <div className="videoplayer">
+    {media
+      ? <div className="videoplayer">
         <video controls autoPlay loop src={media}></video>
       </div>
-    : null
+      : null
     }
 
     {sentences === undefined
-    ? <p>⏳</p>
-    : <DataTable options={{
-                responsive: true,
-                buttons: true,
-                select: true,
-                language: {
-                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
-                },
-                layout: {
-                topStart: {
-                  buttons: [
-                    {
-                    extend: 'searchPanes',
-                    config: {
-                        cascadePanes: true
-                      }
-                    }
-                  ]
-                }
-              }
-            }}>
+      ? <p>⏳</p>
+      : <DataTable options={{
+        responsive: true,
+        select: true,
+        destroy: true,
+        buttons: [
+          {
+            extend: 'searchPanes',
+            config: {
+              cascadePanes: true
+            }
+          }
+        ],
+        language: {
+          info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+        },
+        layout: {
+          topStart: 'pageLength',
+          topEnd: ['buttons', 'search'],
+        }
+      }}>
         <thead><tr>
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t('language'))}</th>
           <th>{cap(t('translation'))}</th>
         </tr></thead>
         <tbody>
-          { sentences.map(s => <tr key={s['@id']}>
-              <td><SentenceLink sentence={s}>{s.identifier}</SentenceLink></td>
-              <td><LanguageLink language={s.language} /></td>
-              <td>{s.translation}</td>
-            </tr>
+          {sentences.map(s => <tr key={s['@id']}>
+            <td><SentenceLink sentence={s}>{s.identifier}</SentenceLink></td>
+            <td><LanguageLink language={s.language} /></td>
+            <td>{s.translation}</td>
+          </tr>
           )}
         </tbody>
       </DataTable>

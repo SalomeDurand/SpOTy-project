@@ -15,7 +15,7 @@ import 'datatables.net-select-dt';
 // CSS
 import "../components/DataTable.css";
 
-DataTable.use(DataTablesCore); 
+DataTable.use(DataTablesCore);
 
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();
@@ -23,11 +23,11 @@ export const StimuliPage: FunctionComponent = () => {
 
   const wsContext = useWsContext();
 
-  const trajId= makeNamedNode(spoty.trajectoiresId);
-  const stimuli =  wsContext.sentenceUris
+  const trajId = makeNamedNode(spoty.trajectoiresId);
+  const stimuli = wsContext.sentenceUris
     .flatMap(uri => dataset.match(makeNamedNode(uri), trajId, null).toArray())
     .map(q => q.object.value)
-  ;
+    ;
   let map = new Map<string, number>();
   for (let stim of stimuli) {
     map.set(stim, (map.get(stim) ?? 0) + 1)
@@ -35,41 +35,41 @@ export const StimuliPage: FunctionComponent = () => {
 
   const rows = Array.from(map.entries())
     .map(([key, val]) => ({
-        trajId: parseInt(key),
-        nb: val,
+      trajId: parseInt(key),
+      nb: val,
     }))
     .sort((a, b) => a.trajId - b.trajId)
     ;
 
   return <DataTable options={{
-                responsive: true,
-                buttons: true,
-                select: true,
-                language: {
-                  info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
-                },
-                layout: {
-                topStart: {
-                  buttons: [
-                    {
-                    extend: 'searchPanes',
-                    config: {
-                        cascadePanes: true
-                      }
-                    }
-                  ]
-                }
-              }
-            }}>
+    responsive: true,
+    select: true,
+    destroy: true,
+    buttons: [
+      {
+        extend: 'searchPanes',
+        config: {
+          cascadePanes: true
+        }
+      }
+    ],
+    language: {
+      info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+    },
+    layout: {
+      topStart: 'pageLength',
+      topEnd: ['buttons', 'search'],
+    }
+  }}>
     <thead><tr>
       <th>{cap(t('stimulus'))}</th>
-      <th>{cap(t('sentence', {count: 2}))}</th>
+      <th>{cap(t('sentence', { count: 2 }))}</th>
     </tr></thead>
     <tbody>
-      { rows.map(row => <tr key={row.trajId}>
-          <td><StimulusLink stimulus={row.trajId} /></td>
-          <td>{row.nb}</td>
-        </tr>)
+      {rows.map(row => <tr key={row.trajId}>
+        <td><StimulusLink stimulus={row.trajId} /></td>
+        <td>{row.nb}</td>
+      </tr>)
       }
     </tbody>
   </DataTable>;
