@@ -28,11 +28,13 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 999;
   font-weight: 700;
 }
 .App > header > a, .App > header abbr {
   text-decoration: none;
 }
+
 .App > header > h1 {
   font-size: inherit;
   font-weight: inherit;

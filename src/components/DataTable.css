@@ -9,7 +9,8 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
   text-align: left !important;
 }
 
@@ -17,12 +18,12 @@ td {
   border: thin solid black;
 }
 
-div.dt-container div.dt-layout-row div.dt-layout-cell{
+div.dt-container div.dt-layout-row div.dt-layout-cell {
   display: flex;
   flex-direction: column;
   align-items: end;
 }
 
-div.dt-container div.dt-layout-row{
+div.dt-container div.dt-layout-row {
   align-items: flex-end;
 }
