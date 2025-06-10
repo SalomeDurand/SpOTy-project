@@ -48,7 +48,7 @@
   "---- About ----": "",
   "about": "À propos",
   "about {{what}}": "À propos de {{what}}",
-  "contributors" : "Contributeurs ",
+  "contributors" : "contributeurs",
   "source code on {{repo}}": "code source sur {{repo}}",
 
   "---- ShareIcon ----": "",
