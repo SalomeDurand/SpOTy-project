@@ -48,13 +48,24 @@ export const StimuliPage: FunctionComponent = () => {
     buttons: [
       {
         extend: 'searchPanes',
+        text: cap(t('searchPanes', { ns: 'translation' })),
         config: {
           cascadePanes: true
         }
       }
     ],
     language: {
-      info: t('Showing page _PAGE_ of _PAGES_', { ns: 'translation' }),
+      info: cap(t('showing page _PAGE_ of _PAGES_', { ns: 'translation' })),
+      lengthMenu: cap(t('_MENU_ entries per page', { ns: 'translation' })),
+      search: cap(t('search&#58;', { ns: 'translation' })),
+      searchPanes: {
+        count: '{total}',
+        countFiltered: '{shown} ({total})',
+      },
+      buttons: {
+        searchPanes: cap(t('searchPanes', { ns: 'translation' })),
+        searchPanesTitle: cap(t('filterTable', { ns: 'translation' }))
+      },
     },
     layout: {
       topStart: 'pageLength',

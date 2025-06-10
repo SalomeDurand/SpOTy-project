@@ -55,8 +55,10 @@
   "share": "partager",
 
   "---- DataTables ----": "",
-  "Showing page _PAGE_ of _PAGES_": "Page _PAGE_ sur _PAGES_",
-
+  "showing page _PAGE_ of _PAGES_": "page _PAGE_ sur _PAGES_",
+  "_MENU_ entries per page": "_MENU_ entrées par page",
+  "search&#58;": "rechercher :",
+  "searchPanes": "recherche avancée",
 
   "---- EOF ----": ""
 }
