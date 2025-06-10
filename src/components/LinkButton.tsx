@@ -8,14 +8,16 @@ export const LinkButton: FunctionComponent<{
   disabled?: boolean,
   help?: string,
 	children: ReactNode,
+  className?: string,
 }> = ({
   onClick,
   disabled,
   help,
   children,
+  className
 }) => {
   const label = help
     ? <abbr title={help}>{children}</abbr>
     : children;
-  return <button className="LinkButton" onClick={onClick} disabled={disabled}>{label}</button>;
+  return <button className={`LinkButton${className ? " " + className : ""}`} onClick={onClick} disabled={disabled}>{label}</button>;
 }

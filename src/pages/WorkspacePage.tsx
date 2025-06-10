@@ -81,7 +81,7 @@ const ContainerItem: FunctionComponent<{
   }
   const tools = "container" in args ? <span className="tools">
     { session.isLoggedIn
-      ? <LinkButton help={t("new folder") + " NOT IMPLEMENTED YET"} onClick={() => {}} disabled={true}>+🖿 </LinkButton>
+      ? <LinkButton help={t("new folder") + " NOT IMPLEMENTED YET"} onClick={() => {}} disabled={true}>🗂️ </LinkButton>
       : null }
     { session.isLoggedIn
       ? <UploadCollection container={args.container} onSuccess={refresh} />
@@ -95,7 +95,7 @@ const ContainerItem: FunctionComponent<{
 
   return <li><details open={true}>
     <summary>
-      🖿 {label} { tools }
+      📂 {label} { tools }
     </summary>
     { unfetched
       ? <ul><li>⏳</li></ul>
@@ -134,7 +134,7 @@ const LeafItem: FunctionComponent<{
       .match(null, makeNamedNode(rdf.type), makeNamedNode(spoty.Sentence))
       .toArray()
       .map(q => q.subject.value)
-      .filter(iri => iri.startsWith(leaf.uri))
+      .filter(iri => iri.split('#')[0] === leaf.uri)
       .sort(cmpStr)
     );
   }, [dataset, dataset.size, leaf]);
@@ -150,16 +150,16 @@ const LeafItem: FunctionComponent<{
   }, [dataset, dataset.size, leaf]);
 
   const deleteLeaf = useCallback(() => {
-    if (window.confirm(`Confirm deleting ${label}?`)) {
+    if (window.confirm(t("Confirm deleting {{label}}?", { label }))) {
       leaf.delete().then(refreshContainer);
     }
-  }, [label, leaf, refreshContainer])
+  }, [label, leaf, refreshContainer, t])
 
   const ERR = <span className="error">⚠ </span>;
 
   return <li><details>
     <summary>
-      🗋  {label} 
+      📄  {label} 
       {" "} ({sentences?.length || "⏳"})
       {errors?.length ? <> {ERR}</> : null}
       <span className="tools">
@@ -180,7 +180,7 @@ const LeafItem: FunctionComponent<{
       ? <ul><li>⏳</li></ul>
       : <ul>
           { errors.map(e => <li key={e}>{ERR} {e}</li>) }
-          { sentences.map(s => <li key={s}>🗩 <SentenceLink uri={s} /></li>) }
+          { sentences.map(s => <li key={s}>💬 <SentenceLink uri={s} /></li>) }
         </ul>
     }
   </details></li>
@@ -228,7 +228,7 @@ const UploadCollection: FunctionComponent<{
 
   return (
     <LinkButton help={t("upload file")} onClick={buttonUploadFile} disabled={converter === null}>
-      +🗋
+      📑
       <input type="file" ref={fileInputRef} accept=".xlsx" multiple={true} onChange={uploadFiles} style={{display: "none"}} />
     </LinkButton>
   );

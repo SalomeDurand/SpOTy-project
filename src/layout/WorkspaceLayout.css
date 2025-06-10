@@ -25,6 +25,7 @@
 }
 
 .WorkspaceToolbar li.current {
+  text-decoration: underline;
   background: var(--frame-bg-color)
 }
 

@@ -19,7 +19,7 @@ export const About: FunctionComponent = () => {
     <p><a href={appInfo.repo.url}>{cap(t('source code on {{repo}}', {repo: appInfo.repo.service}))}</a></p>
     { appInfo.contributors.length
       ? <>
-          <p>{cap(t('contributors'))}</p>
+          <p>{cap(t('contributors'))}:</p>
           <ul>
             { appInfo.contributors.map(c =>
               <li key={c.name}>

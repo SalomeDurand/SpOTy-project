@@ -80,12 +80,11 @@ const SentencePageInner: FunctionComponent<{
         </div>
       : null
     }
-
     <h2>
       {title}
       {noWs ? null : <SentenceLink sentence={sentence} noWs><ShareIcon/></SentenceLink>}
     </h2>
-
+  
     <table className="xlslike"><tbody>
       <tr><th>{cap(t("language"))}</th> <td><LanguageLink language={sentence.language} /></td></tr>
       <OptionalMeta label={cap(t("stimulus"))} value={sentence.trajectoiresId}>
