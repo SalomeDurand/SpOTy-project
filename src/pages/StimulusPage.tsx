@@ -76,6 +76,7 @@ export const StimulusPage: FunctionComponent = () => {
         ],
         language: {
           info: cap(t('showing page _PAGE_ of _PAGES_', { ns: 'translation' })),
+          infoFiltered: cap(t('(filtered from _MAX_ total entries)', { ns: 'translation' })),
           lengthMenu: cap(t('_MENU_ entries per page', { ns: 'translation' })),
           search: cap(t('search&#58;', { ns: 'translation' })),
           searchPanes: {

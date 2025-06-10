@@ -59,6 +59,7 @@
   "_MENU_ entries per page": "_MENU_ entrées par page",
   "search&#58;": "rechercher :",
   "searchPanes": "recherche avancée",
+  "(filtered from _MAX_ total entries)":"(filtré à partir de _MAX_ entrées au total)",
 
   "---- EOF ----": ""
 }
