@@ -9,6 +9,10 @@ table {
   border-collapse: collapse;
 }
 
+td, th {
+  text-align: left !important;
+}
+
 td {
   border: thin solid black;
 }
