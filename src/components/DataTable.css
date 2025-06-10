@@ -15,7 +15,7 @@ th {
 }
 
 td {
-  border: thin solid black;
+  border: thin solid #cccccc;
 }
 
 div.dt-container div.dt-layout-row div.dt-layout-cell {
@@ -26,4 +26,18 @@ div.dt-container div.dt-layout-row div.dt-layout-cell {
 
 div.dt-container div.dt-layout-row {
   align-items: flex-end;
+}
+
+.buttons-collection{
+  background-color: #99CCCC !important; 
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem !important;
+}
+
+.dt-button:hover {
+  background-color: #5e8b8b !important;
+  color:white !important;
 }

@@ -58,8 +58,13 @@
   "showing page _PAGE_ of _PAGES_": "page _PAGE_ sur _PAGES_",
   "_MENU_ entries per page": "_MENU_ entrées par page",
   "search&#58;": "rechercher :",
-  "searchPanes": "recherche avancée",
-  "(filtered from _MAX_ total entries)":"(filtré à partir de _MAX_ entrées au total)",
+  "copy":"copier",
+  "csv":"csv",
+  "pdf":"pdf",
+  "copy to clipboard": "ajouté au presse-papiers",
+  "copied %d rows to clipboard": "%d lignes copiées",
+  "copied 1 row to clipboard": "1 ligne copiée",
+  "export": "exporter",
 
   "---- EOF ----": ""
 }

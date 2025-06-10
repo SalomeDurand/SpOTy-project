@@ -50,37 +50,49 @@ export const LanguagesPage: FunctionComponent = () => {
 
 
   return <DataTable key={i18n.language} options={{
-    responsive: true,
-    select: true,
-    destroy: true,
-    buttons: [
-      {
-        extend: 'searchPanes',
-        text: cap(t('searchPanes', { ns: 'translation' })),
-        config: {
-          cascadePanes: true
-        }
-      }
-    ],
-    language: {
-      info: cap(t('showing page _PAGE_ of _PAGES_', { ns: 'translation' })),
-      infoFiltered: cap(t('(filtered from _MAX_ total entries)', { ns: 'translation' })),
-      lengthMenu: cap(t('_MENU_ entries per page', { ns: 'translation' })),
-      search: cap(t('search&#58;', { ns: 'translation' })),
-      searchPanes: {
-        count: '{total}',
-        countFiltered: '{shown} ({total})',
-      },
-      buttons: {
-        searchPanes: cap(t('searchPanes', { ns: 'translation' })),
-        searchPanesTitle: cap(t('filterTable', { ns: 'translation' }))
-      },
-    },
-    layout: {
-      topStart: 'pageLength',
-      topEnd: ['buttons', 'search'],
-    }
-  }}>
+        responsive: true,
+        select: true,
+        destroy: true,
+        buttons: [
+          {
+            extend: 'collection',
+            text: cap(t('export', { ns: 'translation' })),
+            buttons: [
+              {
+                extend: 'copy',
+                text: t('copy', { ns: 'translation' }),
+              },
+              {
+                extend: 'csv',
+                text: t('csv', { ns: 'translation' }),
+              },
+              {
+                extend: 'pdfHtml5',
+                text: t('pdf', { ns: 'translation' }),
+              }
+            ]
+          }
+        ],
+        language: {
+          info: cap(t('showing page _PAGE_ of _PAGES_', { ns: 'translation' })),
+          infoFiltered: cap(t('(filtered from _MAX_ total entries)', { ns: 'translation' })),
+          lengthMenu: cap(t('_MENU_ entries per page', { ns: 'translation' })),
+          search: cap(t('search&#58;', { ns: 'translation' })),
+          buttons: {
+            copy: t('copy', { ns: 'translation' }),
+            csv: t('csv', { ns: 'translation' }),
+            pdf: t('pdf', { ns: 'translation' }),
+            copyTitle: t('Copy to clipboard', { ns: 'translation' }),
+            copySuccess: {
+              _: t('copied %d rows to clipboard', { ns: 'translation' }),
+              1: t('copied 1 row to clipboard', { ns: 'translation' }),
+            },
+          },
+        },
+        layout: {
+          topEnd: ['buttons', 'search'],
+        },
+      }}>
     <thead><tr>
       <th>{cap(t("language"))}</th>
       <th>ISO 639-3</th>

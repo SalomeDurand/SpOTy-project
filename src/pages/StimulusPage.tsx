@@ -13,14 +13,19 @@ import { makeLiteral, makeNamedNode } from "../lib/nodes";
 import { spoty, xsd } from "../lib/ns";
 import DataTable from 'datatables.net-react';
 import DataTablesCore from 'datatables.net-dt';
+import 'datatables.net-buttons/js/buttons.html5.mjs';
 import 'datatables.net-buttons-dt';
 import 'datatables.net-responsive-dt';
 import 'datatables.net-searchpanes-dt';
 import 'datatables.net-select-dt';
+import pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 // CSS
 import "../components/DataTable.css";
 import "./StimulusPage.css";
 
+pdfMake.vfs = (pdfFonts as any).vfs;
+DataTablesCore.Buttons.pdfMake(pdfMake);
 DataTable.use(DataTablesCore);
 
 export const StimulusPage: FunctionComponent = () => {
@@ -67,11 +72,22 @@ export const StimulusPage: FunctionComponent = () => {
         destroy: true,
         buttons: [
           {
-            extend: 'searchPanes',
-            text: cap(t('searchPanes', { ns: 'translation' })),
-            config: {
-              cascadePanes: true
-            }
+            extend: 'collection',
+            text: cap(t('export', { ns: 'translation' })),
+            buttons: [
+              {
+                extend: 'copy',
+                text: t('copy', { ns: 'translation' }),
+              },
+              {
+                extend: 'csv',
+                text: t('csv', { ns: 'translation' }),
+              },
+              {
+                extend: 'pdfHtml5',
+                text: t('pdf', { ns: 'translation' }),
+              }
+            ]
           }
         ],
         language: {
@@ -79,19 +95,20 @@ export const StimulusPage: FunctionComponent = () => {
           infoFiltered: cap(t('(filtered from _MAX_ total entries)', { ns: 'translation' })),
           lengthMenu: cap(t('_MENU_ entries per page', { ns: 'translation' })),
           search: cap(t('search&#58;', { ns: 'translation' })),
-          searchPanes: {
-            count: '{total}',
-            countFiltered: '{shown} ({total})',
-          },
           buttons: {
-            searchPanes: cap(t('searchPanes', { ns: 'translation' })),
-            searchPanesTitle: cap(t('filterTable', { ns: 'translation' }))
+            copy: t('copy', { ns: 'translation' }),
+            csv: t('csv', { ns: 'translation' }),
+            pdf: t('pdf', { ns: 'translation' }),
+            copyTitle: t('Copy to clipboard', { ns: 'translation' }),
+            copySuccess: {
+              _: t('copied %d rows to clipboard', { ns: 'translation' }),
+              1: t('copied 1 row to clipboard', { ns: 'translation' }),
+            },
           },
         },
         layout: {
-          topStart: 'pageLength',
           topEnd: ['buttons', 'search'],
-        }
+        },
       }}>
         <thead><tr>
           <th>{cap(t("sentence"))}</th>
