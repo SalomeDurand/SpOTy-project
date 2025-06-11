@@ -41,3 +41,12 @@ div.dt-container div.dt-layout-row {
   background-color: #5e8b8b !important;
   color:white !important;
 }
+
+.dt-button[tabindex="0"]{
+  background-color: #99CCCC !important; 
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem !important;
+}

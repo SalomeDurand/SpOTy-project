@@ -53,7 +53,7 @@ export const StimulusPage: FunctionComponent = () => {
 
     {sentences === undefined
       ? <p>⏳</p>
-      : <DataTableComponent>
+      : <DataTableComponent columns={3}>
         <thead><tr>
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t('language'))}</th>

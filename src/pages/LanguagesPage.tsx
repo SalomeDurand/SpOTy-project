@@ -40,7 +40,7 @@ export const LanguagesPage: FunctionComponent = () => {
     .sort((a, b) => cmpStr(a.lang.label, b.lang.label));
 
 
-  return <DataTableComponent>
+  return <DataTableComponent columns={5}>
     <thead><tr>
       <th>{cap(t("language"))}</th>
       <th>ISO 639-3</th>

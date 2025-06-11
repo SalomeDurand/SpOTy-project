@@ -70,7 +70,7 @@ const LanguagePageInner: FunctionComponent<{
         <dt>{t("Wikidata")}</dt><dd><a href={language['@id']}>{wdid}</a></dd>
       </dl>
 
-      <DataTableComponent>
+      <DataTableComponent columns={4}>
         <thead><tr>
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t("stimulus"))}</th>

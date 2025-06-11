@@ -11,7 +11,7 @@ import { DataTableComponent } from "../components/DataTable";
 export const StimuliPage: FunctionComponent = () => {
   const { dataset } = useLdo();
   const { t } = useTranslation('spoty');
-  
+
   const wsContext = useWsContext();
 
   const trajId = makeNamedNode(spoty.trajectoiresId);
@@ -32,7 +32,7 @@ export const StimuliPage: FunctionComponent = () => {
     .sort((a, b) => a.trajId - b.trajId)
     ;
 
-  return <DataTableComponent>
+  return <DataTableComponent columns={2}>
     <thead><tr>
       <th>{cap(t('stimulus'))}</th>
       <th>{cap(t('sentence', { count: 2 }))}</th>

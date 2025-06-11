@@ -22,17 +22,27 @@ DataTable.use(DataTablesCore);
 // TODO: investigate existing components that do it already
 export const DataTableComponent: FunctionComponent<{
   children: ReactNode,
+  columns: number,
 }> = ({
-  children,
+  children, columns
 }) => {
-  const { t, i18n } = useTranslation('translation');
+    const { t, i18n } = useTranslation('translation');
 
     function getDataTableOptions() {
+      const targets = Array.from({ length: columns }, (v, i) => i);
+
       return {
         responsive: true,
         select: true,
         destroy: true,
         buttons: [
+          {
+            extend: 'searchPanes',
+            text: cap(t('searchPanes')),
+            config: {
+              layout: `columns-${columns}`
+            }
+          },
           {
             extend: 'collection',
             text: cap(t('export')),
@@ -57,6 +67,21 @@ export const DataTableComponent: FunctionComponent<{
           infoFiltered: cap(t('(filtered from _MAX_ total entries)')),
           lengthMenu: cap(t('_MENU_ entries per page')),
           search: cap(t('search&#58;')),
+          searchPanes: {
+              title: {
+                _: cap(t('filters selected - %d')),
+                0: cap(t('no filters selected')),
+                1: cap(t('one filter selected')),
+              },
+              clearMessage: cap(t('clear all filters')),
+              collapse: cap(t('searchPanes')),
+              collapseMessage: cap(t('collapse all')),
+              showMessage: cap(t('show all')),
+              count: '{total}',
+              countFiltered: '{shown} ({total})',
+              emptyPanes: cap(t('no filters available')),
+              loadMessage: cap(t('loading filters')),
+            },
           buttons: {
             copy: t('copy'),
             csv: t('csv'),
@@ -71,14 +96,22 @@ export const DataTableComponent: FunctionComponent<{
         layout: {
           topEnd: ['buttons', 'search'],
         },
-      };
+        columnDefs: [
+          {
+            searchPanes: {
+              show: true
+            },
+            targets: targets
+          }
+        ]
+      }
     }
 
     const options = getDataTableOptions();
 
     return (
-    <DataTable key={i18n.language} options={options}>
-      {children}
-    </DataTable>
+      <DataTable key={i18n.language} options={options}>
+        {children}
+      </DataTable>
     );
   }
