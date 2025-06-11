@@ -4,6 +4,11 @@
 @import url('datatables.net-searchpanes-dt');
 @import url('datatables.net-select-dt');
 
+.DataTable{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .DataTable table {
   width: 100%;
   border-collapse: collapse;
