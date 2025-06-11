@@ -38,6 +38,7 @@ export const DataTableComponent: FunctionComponent<{
         buttons: [
           {
             extend: 'searchPanes',
+            className: 'btn-searchpanes',
             text: cap(t('searchPanes')),
             config: {
               layout: `columns-${columns}`
@@ -68,20 +69,20 @@ export const DataTableComponent: FunctionComponent<{
           lengthMenu: cap(t('_MENU_ entries per page')),
           search: cap(t('search&#58;')),
           searchPanes: {
-              title: {
-                _: cap(t('filters selected - %d')),
-                0: cap(t('no filters selected')),
-                1: cap(t('one filter selected')),
-              },
-              clearMessage: cap(t('clear all filters')),
-              collapse: cap(t('searchPanes')),
-              collapseMessage: cap(t('collapse all')),
-              showMessage: cap(t('show all')),
-              count: '{total}',
-              countFiltered: '{shown} ({total})',
-              emptyPanes: cap(t('no filters available')),
-              loadMessage: cap(t('loading filters')),
+            title: {
+              _: cap(t('filters selected - %d')),
+              0: cap(t('no filters selected')),
+              1: cap(t('one filter selected')),
             },
+            clearMessage: cap(t('clear all filters')),
+            collapse: cap(t('searchPanes')),
+            collapseMessage: cap(t('collapse all')),
+            showMessage: cap(t('show all')),
+            count: '{total}',
+            countFiltered: '{shown} ({total})',
+            emptyPanes: cap(t('no filters available')),
+            loadMessage: cap(t('loading filters')),
+          },
           buttons: {
             copy: t('copy'),
             csv: t('csv'),
@@ -91,6 +92,13 @@ export const DataTableComponent: FunctionComponent<{
               _: t('copied %d rows to clipboard'),
               1: t('copied 1 row to clipboard'),
             },
+          },
+          select: {
+            rows: {
+              _: t('%d rows selected'),
+              0: '',
+              1: t('1 row selected'),
+            }
           },
         },
         layout: {
@@ -109,9 +117,10 @@ export const DataTableComponent: FunctionComponent<{
 
     const options = getDataTableOptions();
 
-    return (
+    return (<div className="DataTable">
       <DataTable key={i18n.language} options={options}>
         {children}
       </DataTable>
+    </div>
     );
   }

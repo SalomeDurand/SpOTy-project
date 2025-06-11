@@ -75,6 +75,8 @@
   "copied %d rows to clipboard": "%d lignes copiées",
   "copied 1 row to clipboard": "1 ligne copiée",
   "export": "exporter",
+  "%d rows selected": "%d lignes sélectionnées",
+  "1 row selected": "1 ligne sélectionnée",
 
   "---- EOF ----": ""
 }
