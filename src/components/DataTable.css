@@ -1,13 +1,76 @@
-table.DataTable {
+@import url('datatables.net-dt');
+@import url('datatables.net-buttons-dt');
+@import url('datatables.net-responsive-dt');
+@import url('datatables.net-searchpanes-dt');
+@import url('datatables.net-select-dt');
+
+.DataTable {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.DataTable table {
   width: 100%;
   border-collapse: collapse;
 }
 
-table.DataTable th {
-  text-align: left;
+.DataTable table tbody tr:nth-child(even) {
+  background-color: #ededed;
 }
 
-table.DataTable td {
-  border: thin solid black;
+.DataTable table tbody tr:hover {
+  background-color: #e7efef;
 }
 
+.DataTable td,
+.DataTable th {
+  text-align: left !important;
+}
+
+.DataTable td {
+  border: thin solid #cccccc;
+}
+
+div.dt-container div.dt-layout-end>*:not(:first-child) {
+  margin-left: 0;
+}
+
+.dt-button-collection.dtb-collection-closeable {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+div.dt-container div.dt-layout-row {
+  align-items: flex-end;
+}
+
+.buttons-collection,
+div.dt-container .dt-paging .dt-paging-button.current,
+.btn-searchpanes {
+  background-color: #99CCCC !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.6rem !important;
+  background-image: none !important;
+}
+
+.buttons-collection:hover,
+.dt-button[tabindex="0"]:hover {
+  background-color: #5e8b8b !important;
+  color: white !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button:hover {
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.6rem !important;
+}

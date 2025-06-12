@@ -2,6 +2,7 @@
   margin-top: 2ex;
   margin-left: 2ex;
   border-collapse: collapse;
+  width:auto;
 }
 
 .SentencePage table.xlslike th, table.xlslike td {

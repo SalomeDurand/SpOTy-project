@@ -1,6 +1,7 @@
 
 .WorkspaceToolbar {
   position: fixed;
+  z-index: 999;
   width: 100%;
   top: 1.2em;
   border-bottom: thick solid var(--frame-bg-color);
