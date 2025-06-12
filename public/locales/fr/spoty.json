@@ -31,7 +31,7 @@
   "demo workspace": "$t(workspace) de démonstration",
   "You have no workspace yet.": "Vous n'avez pas d'$t(workspace) pour l'instant.",
   "Your workspaces:": "Vos $t(workspace, { \"count\": 99 }) :",
-  "create a new workspace": "Créer un nouvel $t(workspace)",
+  "create a new workspace": "créer un nouvel $t(workspace)",
   "Open workspace by URL:": "Ouvrir un $t(workspace) par URL :",
 
   "Try this <1>demo workspace</1> or <3>login</3> to create your own.": "Essayez cet <1>$t(demo workspace)</1> ou <3>connectez-vous</3> pour créer le vôtre.",

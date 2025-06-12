@@ -22,3 +22,11 @@
 .WorkspacePage .sentences .error {
   color: red;
 }
+
+div.WorkspacePage .link-with-icon .icon {
+  display: none;
+}
+
+div.WorkspacePage .link-with-icon:hover {
+  background-color: transparent;
+}

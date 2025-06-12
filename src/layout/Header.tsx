@@ -1,6 +1,7 @@
 import { ContainerUri } from "@ldo/solid"
 import { FunctionComponent, ReactNode } from "react"
 import { useTranslation } from "react-i18next";
+import { cap } from "../lib/cap";
 import { Link } from "react-router-dom";
 import { LinkButton } from "../components/LinkButton";
 import { WorkspaceLink } from "../components/WorkspaceLink";
@@ -20,7 +21,7 @@ export const Header: FunctionComponent<{
 
   const backLabel = <abbr title={t('back')}>&lt;</abbr>;
   const backNode = backRoute === undefined
-    ? <Link to="/" className="home-link">⌂<span className="label">Home</span></Link>
+    ? <Link to="/" className="home-link">⌂<span className="label">{cap(t('home'))}</span></Link>
     : typeof(backRoute) === "string"
     ? <Link to={backRoute}>{backLabel}</Link>
     : "workspace" in backRoute

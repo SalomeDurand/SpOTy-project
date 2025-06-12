@@ -32,6 +32,8 @@ body {
   font-weight: 700;
 }
 
+/* link: ⌂ */
+
 .home-link {
   font-size: 2rem;
   font-weight: lighter;
@@ -89,7 +91,13 @@ body {
 }
 
 .homeLoginButton {
-  text-decoration: underline;
+  font-weight: bold;
+}
+
+.homeLoginButton:hover,
+.link-with-icon:hover {
+  border-radius: 2px;
+  background-color: rgba(153, 204, 204, 0.5);
 }
 
 /* class banner: full-width colored banner used for the UI layout */
@@ -141,4 +149,19 @@ body {
 
 *:hover>.herelink {
   display: inline;
+}
+
+/* any link leading to another Workspace */
+
+.link-with-icon {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.link-with-icon .icon {
+  width: 0.7em;
+  height: 0.7em;
+  padding: 0.3em;
+  vertical-align: middle;
 }
