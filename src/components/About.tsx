@@ -4,6 +4,7 @@ import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
 import appInfo from "../app-info.json";
 import { Modal } from "./Modal";
+import { getPunctuation } from '../utils/punctuation';
 
 // This component shows general information about the app.
 export const About: FunctionComponent = () => {
@@ -19,7 +20,7 @@ export const About: FunctionComponent = () => {
     <p><a href={appInfo.repo.url}>{cap(t('source code on {{repo}}', {repo: appInfo.repo.service}))}</a></p>
     { appInfo.contributors.length
       ? <>
-          <p>{cap(t('contributors'))}:</p>
+          <p>{cap(t('contributors'))}{getPunctuation(":")}</p>
           <ul>
             { appInfo.contributors.map(c =>
               <li key={c.name}>
