@@ -20,7 +20,7 @@ export const Header: FunctionComponent<{
 
   const backLabel = <abbr title={t('back')}>&lt;</abbr>;
   const backNode = backRoute === undefined
-    ? <Link to="/">⌂</Link>
+    ? <Link to="/" className="home-link">⌂<span className="label">Home</span></Link>
     : typeof(backRoute) === "string"
     ? <Link to={backRoute}>{backLabel}</Link>
     : "workspace" in backRoute

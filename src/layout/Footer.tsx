@@ -30,8 +30,8 @@ export const Footer: FunctionComponent = () => {
     : null
     }
     <div className="banner">
-      <span><AboutDialogButton /></span>
-      <span><PreferencesDialogButton /></span>
+      <span className="aboutButton"><AboutDialogButton /></span>
+      <span className="preferencesButton"><PreferencesDialogButton /></span>
       {
         appCtx.loginInProgress
         ? cap(t('logging in...'))
