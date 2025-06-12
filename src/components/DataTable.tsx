@@ -27,95 +27,90 @@ export const DataTableComponent: FunctionComponent<{
   children, columns
 }) => {
     const { t, i18n } = useTranslation('translation');
+    const targets = Array.from({ length: columns }, (v, i) => i);
 
-    function getDataTableOptions() {
-      const targets = Array.from({ length: columns }, (v, i) => i);
-
-      return {
-        responsive: true,
-        select: true,
-        destroy: true,
-        buttons: [
-          {
-            extend: 'searchPanes',
-            className: 'btn-searchpanes',
-            text: cap(t('searchPanes')),
-            config: {
-              layout: `columns-${columns}`
-            }
-          },
-          {
-            extend: 'collection',
-            text: cap(t('export')),
-            buttons: [
-              {
-                extend: 'copy',
-                text: t('copy'),
-              },
-              {
-                extend: 'csv',
-                text: t('csv'),
-              },
-              {
-                extend: 'pdfHtml5',
-                text: t('pdf'),
-              }
-            ]
+    const options = {
+      responsive: true,
+      select: true,
+      destroy: true,
+      buttons: [
+        {
+          extend: 'searchPanes',
+          className: 'btn-searchpanes',
+          text: cap(t('searchPanes')),
+          config: {
+            layout: `columns-${columns}`
           }
-        ],
-        language: {
-          info: cap(t('showing page _PAGE_ of _PAGES_')),
-          infoFiltered: cap(t('(filtered from _MAX_ total entries)')),
-          lengthMenu: cap(t('_MENU_ entries per page')),
-          search: cap(t('search&#58;')),
+        },
+        {
+          extend: 'collection',
+          text: cap(t('export')),
+          buttons: [
+            {
+              extend: 'copy',
+              text: t('copy'),
+            },
+            {
+              extend: 'csv',
+              text: t('csv'),
+            },
+            {
+              extend: 'pdfHtml5',
+              text: t('pdf'),
+            }
+          ]
+        }
+      ],
+      language: {
+        info: cap(t('showing page _PAGE_ of _PAGES_')),
+        infoFiltered: cap(t('(filtered from _MAX_ total entries)')),
+        lengthMenu: cap(t('_MENU_ entries per page')),
+        search: cap(t('search&#58;')),
+        searchPanes: {
+          title: {
+            _: cap(t('filters selected - %d')),
+            0: cap(t('no filters selected')),
+            1: cap(t('one filter selected')),
+          },
+          clearMessage: cap(t('clear all filters')),
+          collapse: cap(t('searchPanes')),
+          collapseMessage: cap(t('collapse all')),
+          showMessage: cap(t('show all')),
+          count: '{total}',
+          countFiltered: '{shown} ({total})',
+          emptyPanes: cap(t('no filters available')),
+          loadMessage: cap(t('loading filters')),
+        },
+        buttons: {
+          copy: t('copy'),
+          csv: t('csv'),
+          pdf: t('pdf'),
+          copyTitle: cap(t('copy to clipboard')),
+          copySuccess: {
+            _: t('copied %d rows to clipboard'),
+            1: t('copied 1 row to clipboard'),
+          },
+        },
+        select: {
+          rows: {
+            _: t('%d rows selected'),
+            0: '',
+            1: t('1 row selected'),
+          }
+        },
+      },
+      layout: {
+        topEnd: ['buttons', 'search'],
+      },
+      columnDefs: [
+        {
           searchPanes: {
-            title: {
-              _: cap(t('filters selected - %d')),
-              0: cap(t('no filters selected')),
-              1: cap(t('one filter selected')),
-            },
-            clearMessage: cap(t('clear all filters')),
-            collapse: cap(t('searchPanes')),
-            collapseMessage: cap(t('collapse all')),
-            showMessage: cap(t('show all')),
-            count: '{total}',
-            countFiltered: '{shown} ({total})',
-            emptyPanes: cap(t('no filters available')),
-            loadMessage: cap(t('loading filters')),
+            show: true
           },
-          buttons: {
-            copy: t('copy'),
-            csv: t('csv'),
-            pdf: t('pdf'),
-            copyTitle: cap(t('copy to clipboard')),
-            copySuccess: {
-              _: t('copied %d rows to clipboard'),
-              1: t('copied 1 row to clipboard'),
-            },
-          },
-          select: {
-            rows: {
-              _: t('%d rows selected'),
-              0: '',
-              1: t('1 row selected'),
-            }
-          },
-        },
-        layout: {
-          topEnd: ['buttons', 'search'],
-        },
-        columnDefs: [
-          {
-            searchPanes: {
-              show: true
-            },
-            targets: targets
-          }
-        ]
-      }
+          targets: targets
+        }
+      ]
     }
-
-    const options = getDataTableOptions();
 
     return (<div className="DataTable">
       <DataTable key={i18n.language} options={options}>
