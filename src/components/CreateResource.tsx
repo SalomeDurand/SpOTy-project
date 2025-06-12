@@ -3,6 +3,8 @@ import { useLdo } from "@ldo/solid-react";
 import { ChangeEvent, FunctionComponent, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getStorageUris, useProfile } from "../lib/profile";
+// CSS
+import "./ClickButton.css"
 
 // Show a form allowing the user to create a new leaf (non-container resource) on ther pod.
 export const CreateLeaf: FunctionComponent<{
@@ -151,7 +153,7 @@ const CreateResource: FunctionComponent<{
     </select>
     <input value={path} onChange={handleChangePath} disabled={creating} />
     { container ? " / " : " " }
-    <button onClick={handleCreate} disabled={disabled || !canCreate} >Create</button>
+    <button className="clickButton" onClick={handleCreate} disabled={disabled || !canCreate} >Create</button>
     { " " }
     { explanation }
   </span>

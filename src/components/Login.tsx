@@ -7,6 +7,8 @@ import { LinkButton } from "./LinkButton";
 import { cap } from "../lib/cap";
 import appInfo from "../app-info.json";
 import { Modal } from "./Modal";
+// CSS
+import "./ClickButton.css";
 
 export const DEFAULT_IDP = "https://solidcommunity.net"
 
@@ -62,7 +64,7 @@ export const Login: FunctionComponent = () => {
     <p>
       {cap(t('login with'))}&nbsp;
       <input ref={inputRef} defaultValue={defaultIdp()} onKeyDown={catchEnter} />
-      <button onClick={doLogin} disabled={appCtx.loginInProgress}>{cap(t('go'))}</button>
+      <button className="clickButton" onClick={doLogin} disabled={appCtx.loginInProgress}>{cap(t('go'))}</button>
     </p>
     { loadIdps().length > 0
     ? <details>
