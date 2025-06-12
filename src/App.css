@@ -22,6 +22,8 @@ body {
 .App {
   font-family: Roboto;
   background: var(--default-bg-color);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .App>header {
