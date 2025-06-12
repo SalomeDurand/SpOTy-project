@@ -11,7 +11,7 @@ import 'datatables.net-select-dt';
 import pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 // CSS
-import "../components/DataTable.css";
+import "./DataTable.css";
 
 pdfMake.vfs = (pdfFonts as any).vfs;
 DataTablesCore.Buttons.pdfMake(pdfMake);

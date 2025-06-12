@@ -4,7 +4,7 @@
 @import url('datatables.net-searchpanes-dt');
 @import url('datatables.net-select-dt');
 
-.DataTable{
+.DataTable {
   margin-left: 2rem;
   margin-right: 2rem;
 }
@@ -29,6 +29,17 @@
 
 .DataTable td {
   border: thin solid #cccccc;
+}
+
+div.dt-container div.dt-layout-end>*:not(:first-child) {
+  margin-left: 0;
+}
+
+.dt-button-collection.dtb-collection-closeable {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 div.dt-container div.dt-layout-row div.dt-layout-cell {
