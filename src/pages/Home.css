@@ -1,0 +1,9 @@
+.homeDetails p, label {
+  display: flex;
+  gap: 0.5em;
+}
+
+.homeDetails input {
+  flex-shrink: 0;
+  min-width: 18rem;
+}

@@ -26,36 +26,80 @@ body {
   padding-bottom: 1rem;
 }
 
-.App > header {
+.App>header {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
   font-weight: 700;
 }
-.App > header > a, .App > header abbr {
+
+/* link: ⌂ */
+
+.home-link {
+  font-size: 2rem;
+  font-weight: lighter;
+  color: black
+}
+
+.home-link:hover {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.home-link .label {
+  display: inline-block;
+  transform: translateX(-100%);
+  opacity: 0;
+  white-space: nowrap;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  margin-left: 0.3em;
+  font-size: 1rem;
+}
+
+.home-link:hover .label {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.App>header>a,
+.App>header abbr {
   text-decoration: none;
 }
 
-.App > header > h1 {
+.App>header>h1 {
   font-size: inherit;
   font-weight: inherit;
   margin: inherit;
+  align-self: center;
+  font-size: 1.2rem;
 }
 
-.App > footer {
+.App>footer {
   position: fixed;
   width: 100%;
   bottom: 0;
 }
 
-.App > main {
-  margin: 1.3em 0.5ex 2.3em;
-  min-height: 50vh;
+.App>main {
+  padding-top: 3em;
+  margin: 0em 2.5em;
+  min-height: 80vh;
+  padding-bottom: 4em;
+}
+
+.App main p:first-of-type {
+  margin-top: 0;
 }
 
 .homeLoginButton {
-  text-decoration: underline;
+  font-weight: bold;
+}
+
+.homeLoginButton:hover,
+.link-with-icon:hover {
+  border-radius: 2px;
+  background-color: rgba(153, 204, 204, 0.5);
 }
 
 /* class banner: full-width colored banner used for the UI layout */
@@ -64,24 +108,28 @@ body {
   color: var(--frame-fg-color);
   background-color: var(--frame-bg-color);
   min-height: 1ex;
-  padding: 0 0.5ex;
+  padding: 0 2ex;
   width: calc(100%-1ex);
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
-.App .banner > *:first-child {
+
+.App .banner>* {
+  text-align: center;
+}
+
+.App .banner>*:first-child {
   text-align: left;
 }
-.App .banner > *:last-child {
+
+.App .banner>*:last-child {
   text-align: right;
-}
-.App .banner > * {
-  text-align: center;
 }
 
 /* class error: for displaying error messages(!) */
 
-.App > .error {
+.App>.error {
   color: var(--error-fg-color);
   background-color: var(--error-bg-color);
   border: thick solid var(--error-fg-color);
@@ -101,6 +149,21 @@ body {
   text-decoration: none;
 }
 
-*:hover > .herelink {
+*:hover>.herelink {
   display: inline;
+}
+
+/* any link leading to another Workspace */
+
+.link-with-icon {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.link-with-icon .icon {
+  width: 0.7em;
+  height: 0.7em;
+  padding: 0.3em;
+  vertical-align: middle;
 }

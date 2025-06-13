@@ -1,0 +1,13 @@
+.clickButton {
+    background-color: #99CCCC;
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    border:none;
+    margin-left: 0.3rem;
+    cursor: pointer;
+}
+
+.clickButton:hover{
+    background-color: #5e8b8b;
+    color: white;
+}

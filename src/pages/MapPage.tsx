@@ -7,11 +7,12 @@ import { useAppContext } from "../components/AppContext";
 import { useWsContext } from "../components/WsContext";
 import { makeNamedNode } from "../lib/nodes";
 import { spoty } from "../lib/ns";
+import { getPunctuation } from '../utils/punctuation';
+import { LanguageLink } from "../components/LanguageLink";
+import { Language } from "../.ldo/spoty_ldo.typings";
 // CSS
 import "leaflet/dist/leaflet.css";
 import "./MapPage.css";
-import { LanguageLink } from "../components/LanguageLink";
-import { Language } from "../.ldo/spoty_ldo.typings";
 
 export const MapPage: FunctionComponent = () => {
   const { dataset } = useLdo();
@@ -62,7 +63,7 @@ export const MapPage: FunctionComponent = () => {
         return <CircleMarker key={language['@id']} center={center} radius={radius}>
           <Popup>
             <LanguageLink language={language} /> <br/>
-            {language.phylum ? <><b>{t("phylum")}</b>: {language.phylum}<br/></> : null }
+            {language.phylum ? <><b>{t("phylum")}</b>{getPunctuation(":")} {language.phylum}<br/></> : null }
             {count} {t("sentence", {count: count})}
           </Popup>
         </CircleMarker>;

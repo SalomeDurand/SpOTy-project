@@ -35,11 +35,11 @@ export const StimuliPage: FunctionComponent = () => {
   return <DataTableComponent columns={2}>
     <thead><tr>
       <th>{cap(t('stimulus'))}</th>
-      <th>{cap(t('sentence', { count: 2 }))}</th>
+      <th>{cap(t('number of sentences'))}</th>
     </tr></thead>
     <tbody>
       {rows.map(row => <tr key={row.trajId}>
-        <td><StimulusLink stimulus={row.trajId} /></td>
+        <td>{t('No.')} <StimulusLink stimulus={row.trajId} /></td>
         <td>{row.nb}</td>
       </tr>)
       }

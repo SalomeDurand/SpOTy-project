@@ -12,7 +12,8 @@ import { spoty } from "../lib/ns"
 import { useProfile } from "../lib/profile"
 import { useAllRegisteredContainers } from "../lib/typeIndexes"
 import appInfo from "../app-info.json";
-
+// CSS
+import "./Home.css";
 
 // Home page of the application, shows a list of available workspaces.
 //
@@ -22,29 +23,29 @@ export const Home: FunctionComponent = () => {
   console.debug("Home: rendering");
 
   const { session } = useSolidAuth();
-  const [ custom, setCustom ] = useState(DEMO_WORKSPACE);
+  const [custom, setCustom] = useState(DEMO_WORKSPACE);
   const { t } = useTranslation("spoty");
   const nsCommon = { ns: "translation" };
 
   return <>
     <Header>{appInfo.name}</Header>
     <main>
-      { session.isLoggedIn
-      ? <>
+      {session.isLoggedIn
+        ? <>
           <WorkspaceList />
-          <p><Link to="/w/new">{t('create a new workspace')}</Link></p>
+          <p><Link to="/w/new">{cap(t('create a new workspace'))}</Link></p>
         </>
-      : <p><Trans t={t}>
+        : <p><Trans t={t}>
           Try this <WorkspaceLink to={DEMO_WORKSPACE}>demo workspace</WorkspaceLink> or <LoginDialogButton className="homeLoginButton">login</LoginDialogButton> to create your own.
         </Trans></p>
       }
-      <details>
+      <details className="homeDetails">
         <summary>{cap(t('advanced', nsCommon))}</summary>
         <p>
           <label>{t('Open workspace by URL:')}
             <input value={custom} onChange={evt => setCustom(evt.target.value)} />
-            <WorkspaceLink to={custom as ContainerUri}>{t('open', nsCommon)}</WorkspaceLink>
           </label>
+          <WorkspaceLink to={custom as ContainerUri}>{t('open', nsCommon)}</WorkspaceLink>
         </p>
       </details>
     </main>
@@ -52,7 +53,7 @@ export const Home: FunctionComponent = () => {
 }
 
 // URL of the demo ledger
-export const DEMO_WORKSPACE= "https://karlseifen.solidcommunity.net/SpotyData/";
+export const DEMO_WORKSPACE = "https://karlseifen.solidcommunity.net/SpotyData/";
 
 const WorkspaceList: FunctionComponent = () => {
   // console.debug("getLedgerList");
@@ -63,16 +64,16 @@ const WorkspaceList: FunctionComponent = () => {
   return workspaces === undefined
     ? <Loading></Loading>
     : workspaces.length === 0
-    ? <>
+      ? <>
         <p>{t("You have no workspace yet.")}</p>
       </>
-    : <>
-      <p>{t('Your workspaces:')}</p>
-      <ul>
-        { workspaces.map(uri => <li key={uri}><WorkspaceLink to={uri} /></li>)}
-      </ul>
-    </>
-  ;
+      : <>
+        <p>{t('Your workspaces:')}</p>
+        <ul>
+          {workspaces.map(uri => <li key={uri}><WorkspaceLink to={uri} /></li>)}
+        </ul>
+      </>
+    ;
 }
 
 
