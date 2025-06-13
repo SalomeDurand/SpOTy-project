@@ -58,7 +58,7 @@ div.dt-container .dt-paging .dt-paging-button.current,
 .btn-searchpanes {
   background-color: #99CCCC !important;
   color: white !important;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   border: none !important;
   border-radius: 6px !important;
   padding: 0.3rem 0.6rem !important;
@@ -75,4 +75,14 @@ div.dt-container .dt-paging .dt-paging-button:hover {
   border: none !important;
   border-radius: 6px !important;
   padding: 0.3rem 0.6rem !important;
+}
+
+.dt-search,
+.dt-length {
+  display: flex;
+  align-items: center;
+}
+
+.dt-length {
+  gap: 0.3rem;
 }
