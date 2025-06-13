@@ -75,7 +75,7 @@ const LanguagePageInner: FunctionComponent<{
           <th>{cap(t("sentence"))}</th>
           <th>{cap(t("stimulus"))}</th>
           <th>{cap(t("translation"))}</th>
-          <th>{cap(t("source"))}</th>
+          <th>{cap(t("file"))}</th>
         </tr></thead>
         <tbody>
           {sentences.map(s =>
