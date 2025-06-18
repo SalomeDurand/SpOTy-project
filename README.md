@@ -1,3 +1,7 @@
+## 🔄 Fork of the SpOTy project
+
+> This is a **fork** of the project [SpOTy](https://aslan.universite-lyon.fr/projets-finances-par-aslan/projet-spoty-189659.kjsp?RH=1525438355903).
+
 # Solid SpOTy
 
 This is a [Solid](//solidproject.org) application
